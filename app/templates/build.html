@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="description" content="Create and compare Enemy On Board builds!">
+        <title>EOB Builder</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/build.css') }}">
+        <link rel="stylesheet" href="../static/css/build.css">
+
+        <script src="{{ url_for('static', filename='js/build.js') }}"></script>
+        <script src="../static/js/build.js"></script>
+    </head>
+
+    <body>
+        <div class="mainHeader">
+            <img src="../static/assets/EOB_logo.svg">
+            <h1>Enemy On Board</h1>
+        </div>
+
+        <div id="main">
+            <div id="topButtons"></div>
+            
+            <div id="builds">
+                <div class="build">
+                    <div class="character">
+                        <img src="../static/assets/characters/otto_icon.png">
+
+                        <select onchange="changeCharacter(this.value, this.parentElement);" name="character">
+                            <option value="otto">Otto</option>
+                            <option value="triss">Triss</option>
+                            <option value="virgil">Virgil</option>
+                            <option value="lucius">Lucius</option>
+                            <option value="xenna">Xenna</option>
+                            <option value="monkus">Monkus</option>
+                            <option value="sarrel">Sarrel</option>
+                            <option value="niko">Niko</option>
+                            <option value="silas">Silas</option>
+                        </select>
+                    </div>
+
+                    <div class="startingItem">
+                        <img src="../static/assets/items/health_kit.png">
+
+                        <select onchange="changeItem(this.value, this.parentElement);" name="startingItem">
+                            <option value="health_kit">Health Kit</option>
+                            <option value="stun_gun">Stun Gun</option>
+                            <option value="snare_trap">Snare Trap</option>
+                            <option value="force_baton">Force Baton</option>
+                            <option value="EMP">EMP</option>
+                            <option value="jump_drive">Jump Drive</option>
+                            <option value="hookshot">Hookshot</option>
+                            <option value="stim_serum">Stim Serum</option>
+                            <option value="force_blaster">Force Blaster</option>
+                        </select>
+                    </div>
+                    
+                    <div class="perks">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

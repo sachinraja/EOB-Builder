@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,700,800");
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url("../assets/EOB_space.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mainHeader{
+    margin-top: 25px;
+    text-align: center;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
+
+.mainHeader > img{
+    width: 2em;
+    height: 2em;
+    display: inline;
+}
+
+.mainHeader > h1{
+    display: inline;
+    color: purple;
+    background: linear-gradient(purple, violet);
+    background-clip: text;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+}
+
+#main > #topButtons{
+    background-color: #363636;
+    margin: 25px;
+    margin-bottom: 0;
+    padding: 10px;
+}
+
+#topButtons > input[type="button"]{
+	background-color: #ffffff;
+	border-radius: 5px;
+	border-color: transparent;
+	display: inline-block;
+	cursor: pointer;
+	color: #363636;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-size: 1em;
+	padding: 5px 10px;
+	text-decoration: none;
+}
+#topButtons > input[type="button"]:hover{
+	background-color: #eee;
+}
+#topButtons > input[type="button"]:active{
+	position: relative;
+	top: 1px;
+}
+
+
+#builds{
+    background-color: white;
+    margin: 25px;
+    margin-top: 0;
+    padding: 10px;
+}
+
+.build{
+    display: inline-block;
+}
+
+.character, .startingItem{
+    display: inline-table;
+    width: 1%;
+}
+
+.character > img{
+    width: 120px;
+    height: 120px;
+    border-radius: 25px;
+    border: 3px solid lightgray;
+    background-color: gray;
+}
+
+select{
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    border-radius: 25px;
+    border: 3px solid lightgray;
+    background-color: gray;
+    width: 100%;
+}
+
+.startingItem > img{
+    width: 120px;
+    height: 120px;
+    border-radius: 25px;
+    border: 3px solid lightgray;
+}
+
+.perks{
+    margin-top: 10px;
+}
+
+.perks > div{
+    display: inline-table;
+    width: 1%;
+}
+
+.perks > div > img{
+    width: 120px;
+    height: 120px;
+    border-radius: 25px;
+    border: 3px solid lightgray;
+}
