@@ -34,8 +34,3 @@ def base():
     perks = [[perk[:-2], int(perk[-1:])] for perk in perks]
     
     return render_template("build.html", character=character, item=item, perks=perks)
-
-app.run()
-
-if __name__ == "__main__":
-    app.run()
