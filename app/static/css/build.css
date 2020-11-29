@@ -5,6 +5,10 @@
     padding: 0;
 }
 
+html{
+    visibility: hidden;
+}
+
 body{
     background-image: url("../assets/EOB_space.png");
     background-attachment: fixed;
@@ -36,14 +40,14 @@ body{
         -moz-text-fill-color: transparent;
 }
 
-#main > #topButtons{
+#menuButtons{
     background-color: #363636;
     margin: 25px;
     margin-bottom: 0;
     padding: 10px;
 }
 
-#topButtons > input[type="button"]{
+#menuButtons > input[type="button"]{
 	background-color: #ffffff;
 	border-radius: 5px;
 	border-color: transparent;
@@ -55,10 +59,10 @@ body{
 	padding: 5px 10px;
 	text-decoration: none;
 }
-#topButtons > input[type="button"]:hover{
+#menuButtons > input[type="button"]:hover{
 	background-color: #eee;
 }
-#topButtons > input[type="button"]:active{
+#menuButtons > input[type="button"]:active{
 	position: relative;
 	top: 1px;
 }

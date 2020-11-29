@@ -8,6 +8,13 @@
 
         <script src="{{ url_for('static', filename='js/build.js') }}"></script>
         <script src="../static/js/build.js"></script>
+        <script src="{{ url_for('static', filename='js/loadGET.js') }}"></script>
+        <script src="../static/js/loadGET.js"></script>
+        <script type="text/javascript">
+            window.addEventListener("load", function(){
+                loadGET("{{ character }}", "{{ item }}", {{ perks|safe }});
+            });
+        </script>
     </head>
 
     <body>
@@ -17,7 +24,7 @@
         </div>
 
         <div id="main">
-            <div id="topButtons"></div>
+            <div id="menuButtons"></div>
             
             <div id="builds">
                 <div class="build">
