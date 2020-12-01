@@ -32,6 +32,7 @@ function loadPerk(perkInfo){
     newPerkDiv.innerHTML = 
     `
         <img src="${imagePath}" style="background-color: ${backgroundColor};">
+        
         <select onchange="changePerk(this.value, this.parentElement);">
             <option value='["advanced_optics",1]'>Advanced Optics 1</option>
             <option value='["advanced_optics",2]'>Advanced Optics 2</option>
@@ -174,6 +175,8 @@ function loadGET(chrName, itemName, perks){
     for (perk of perks){
         loadPerk(perk);
     }
+
+    displayPerkInfo(getPerkInfos());
     
     //"load" once GET parameters have been accounted for
     document.getElementsByTagName("html")[0].style.visibility = "visible";

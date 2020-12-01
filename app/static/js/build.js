@@ -49,14 +49,14 @@ const perkEnums = {
     ALIENABILITYSTEAL : "Alien Ability Steal",
     ALIENDAMAGE : "Alien Damage",
     DURATION : "Duration",
-    DAMAGEREDUCTION : "Damage Reduction",
+    DAMAGETAKENREDUCTION : "Damage Taken Reduction",
     BLEEDDAMAGE : "Bleed Damage",
     THROWINGAXEDAMAGE : "Throwing Axe Damage",
     CHARGEDTHROWINGAXEDAMAGE : "Charged Throwing Axe Damage",
     SLOW : "Slow",
     SLOWDURATION : "Slow Duration",
-    MAXHPBONUS : "Max HP Bonus",
-    MAXHPREDUCTION : "Max HP Reduction",
+    HEALTHHEALEDFORMAXHP : "Health Healed for Max HP",
+    MAXHP : "Max HP",
     ARMOR : "Armor",
     COOLDOWNREDUCTION : "Cooldown Reduction",
     ABILITYDAMAGE : "Ability Damage",
@@ -81,18 +81,17 @@ const perkEnums = {
     COOLDOWNREDUCTIONONDAMAGETAKEN : "Cooldown Reduction on Damage Taken",
     SURVIVEKILLINGBLOWWITHHEALTH : "Survive Killing Blow with Health",
     GENHEALING : "Generator Healing",
-    GENMAXHPBONUS : "Generator Max HP Bonus",
+    GENMAXHP : "Generator Max HP Bonus",
     HEALINGPERSECOND : "Healing per Second",
     ALIENEVOGAIN: "Alien Evolution Points Gain",
     HUMANEVOREDUCTION : "Human Evolution Points Reduction",
     CAMERAVISION : "Camera Vision",
     KNIFEDAMAGE : "Knife Damage",
     CHARGEDKNIFEDAMAGE : "Charged Knife Damage",
-    MOVEMENTSPEEDREDUCTION: "Movement Speed Reduction",
     INVENTORYSLOTS : "Inventory Slots"
 };
 
-var perks = {
+const perks = {
     "advanced_optics" : new Perk("Advanced Optics", "advanced_optics.png", [
         {[perkEnums.CAMERAZOOM] : [1, "fixed"]},
         {[perkEnums.CAMERAZOOM] : [2, "fixed"]},
@@ -112,15 +111,15 @@ var perks = {
     ]),
 
     "backstab" : new Perk("Backstab", "backstab.png", [
-        {[perkEnums.BLEEDDAMAGE] : [4, "fixed"], [perkEnums.DURATION] : 3},
-        {[perkEnums.BLEEDDAMAGE] : [5, "fixed"], [perkEnums.DURATION] : 3},
-        {[perkEnums.BLEEDDAMAGE] : [6, "fixed"], [perkEnums.DURATION] : 3}
+        {[perkEnums.BLEEDDAMAGE] : [4, "fixed"], [perkEnums.DURATION] : [3, "fixed"]},
+        {[perkEnums.BLEEDDAMAGE] : [5, "fixed"], [perkEnums.DURATION] : [3, "fixed"]},
+        {[perkEnums.BLEEDDAMAGE] : [6, "fixed"], [perkEnums.DURATION] : [3, "fixed"]}
     ]),
 
     "ballistic_plating" : new Perk("Ballistic Plating", "ballistic_plating.png", [
-        {[perkEnums.DAMAGEREDUCTION] : [0.5, "fixed"]},
-        {[perkEnums.DAMAGEREDUCTION] : [1, "fixed"]},
-        {[perkEnums.DAMAGEREDUCTION] : [1.5, "fixed"]}
+        {[perkEnums.DAMAGETAKENREDUCTION] : [0.5, "fixed"]},
+        {[perkEnums.DAMAGETAKENREDUCTION] : [1, "fixed"]},
+        {[perkEnums.DAMAGETAKENREDUCTION] : [1.5, "fixed"]}
     ]),
 
     "battle_axe" : new Perk("Battle Axe", "battle_axe.png", [
@@ -130,9 +129,9 @@ var perks = {
     ]),
 
     "bedside_manner" : new Perk("Bedside Manner", "bedside_manner.png", [
-        {[perkEnums.MAXHPBONUS] : [1/6, "fixed"]},
-        {[perkEnums.MAXHPBONUS] : [1/5, "fixed"]},
-        {[perkEnums.MAXHPBONUS] : [1/4, "fixed"]}
+        {[perkEnums.HEALTHHEALEDFORMAXHP] : [6, "fixed"]},
+        {[perkEnums.HEALTHHEALEDFORMAXHP] : [5, "fixed"]},
+        {[perkEnums.HEALTHHEALEDFORMAXHP] : [4, "fixed"]}
     ]),
 
     "bulletproof_vest" : new Perk("Bulletproof Vest", "bulletproof_vest.png", [
@@ -208,9 +207,9 @@ var perks = {
     ]),
 
     "lean_build" : new Perk("Lean Build", "lean_build.png", [
-        {[perkEnums.MAXHPREDUCTION] : [10, "fixed"], [perkEnums.MOVEMENTSPEED] : [0.02, "percent"]},
-        {[perkEnums.MAXHPREDUCTION] : [15, "fixed"], [perkEnums.MOVEMENTSPEED] : [0.04, "percent"]},
-        {[perkEnums.MAXHPREDUCTION] : [20, "fixed"], [perkEnums.MOVEMENTSPEED] : [0.06, "percent"]}
+        {[perkEnums.MAXHP] : [-10, "fixed"], [perkEnums.MOVEMENTSPEED] : [0.02, "percent"]},
+        {[perkEnums.MAXHP] : [-15, "fixed"], [perkEnums.MOVEMENTSPEED] : [0.04, "percent"]},
+        {[perkEnums.MAXHP] : [-20, "fixed"], [perkEnums.MOVEMENTSPEED] : [0.06, "percent"]}
     ]),
 
     "lightweight" : new Perk("Lightweight", "lightweight.png", [
@@ -244,9 +243,9 @@ var perks = {
     ]),
 
     "nanoweave_vest" : new Perk("Nanoweave Vest", "nanoweave_vest.png", [
-        {[perkEnums.DAMAGEREDUCTION] : [0.05, "percent"]},
-        {[perkEnums.DAMAGEREDUCTION] : [0.075, "percent"]},
-        {[perkEnums.DAMAGEREDUCTION] : [0.1, "percent"]}
+        {[perkEnums.DAMAGETAKENREDUCTION] : [0.05, "percent"]},
+        {[perkEnums.DAMAGETAKENREDUCTION] : [0.075, "percent"]},
+        {[perkEnums.DAMAGETAKENREDUCTION] : [0.1, "percent"]}
     ]),
 
     "ninja" : new Perk("Ninja", "ninja.png", [
@@ -286,9 +285,9 @@ var perks = {
     ]),
 
     "robust" : new Perk("Robust", "robust.png", [
-        {[perkEnums.MAXHPBONUS] : [10, "percent"]},
-        {[perkEnums.MAXHPBONUS] : [15, "percent"]},
-        {[perkEnums.MAXHPBONUS] : [20, "percent"]}
+        {[perkEnums.MAXHP] : [10, "percent"]},
+        {[perkEnums.MAXHP] : [15, "percent"]},
+        {[perkEnums.MAXHP] : [20, "percent"]}
     ]),
 
     "scavenger" : new Perk("Scavenger", "scavenger.png", [
@@ -310,9 +309,9 @@ var perks = {
     ]),
 
     "shock_therapy" : new Perk("Shock Therapy", "shock_therapy.png", [
-        {[perkEnums.GENHEALING] : [5, "fixed"], [perkEnums.GENMAXHPBONUS] : [2, "fixed"]},
-        {[perkEnums.GENHEALING] : [7.5, "fixed"], [perkEnums.GENMAXHPBONUS] : [4, "fixed"]},
-        {[perkEnums.GENHEALING] : [10, "fixed"], [perkEnums.GENMAXHPBONUS] : [6, "fixed"]}
+        {[perkEnums.GENHEALING] : [5, "fixed"], [perkEnums.GENMAXHP] : [2, "fixed"]},
+        {[perkEnums.GENHEALING] : [7.5, "fixed"], [perkEnums.GENMAXHP] : [4, "fixed"]},
+        {[perkEnums.GENHEALING] : [10, "fixed"], [perkEnums.GENMAXHP] : [6, "fixed"]}
     ]),
 
     "slow_drip" : new Perk("Slow Drip", "slow_drip.png", [
@@ -340,9 +339,9 @@ var perks = {
     ]),
 
     "utility_belt" : new Perk("Utility Belt", "utility_belt.png", [
-        {[perkEnums.MAXHPREDUCTION] : [40, "fixed"], [perkEnums.MOVEMENTSPEEDREDUCTION] : [0.05, "percent"], [perkEnums.INVENTORYSLOTS] : [1, "fixed"]},
-        {[perkEnums.MAXHPREDUCTION] : [35, "fixed"], [perkEnums.MOVEMENTSPEEDREDUCTION] : [0.04, "percent"], [perkEnums.INVENTORYSLOTS] : [1, "fixed"]},
-        {[perkEnums.MAXHPREDUCTION] : [30, "fixed"], [perkEnums.MOVEMENTSPEEDREDUCTION] : [0.03, "percent"], [perkEnums.INVENTORYSLOTS] : [1, "fixed"]}
+        {[perkEnums.MAXHP] : [-40, "fixed"], [perkEnums.MOVEMENTSPEED] : [-0.05, "percent"], [perkEnums.INVENTORYSLOTS] : [1, "fixed"]},
+        {[perkEnums.MAXHP] : [-35, "fixed"], [perkEnums.MOVEMENTSPEED] : [-0.04, "percent"], [perkEnums.INVENTORYSLOTS] : [1, "fixed"]},
+        {[perkEnums.MAXHP] : [-30, "fixed"], [perkEnums.MOVEMENTSPEED] : [-0.03, "percent"], [perkEnums.INVENTORYSLOTS] : [1, "fixed"]}
     ])
 };
 
@@ -351,9 +350,11 @@ function getCharacter(name){
 }
 
 function changeCharacter(chrName, chrDiv){
-    let chr = getCharacter(chrName);
-    let chrImg = chrDiv.getElementsByTagName("img")[0];
+    const chr = getCharacter(chrName);
+    const chrImg = chrDiv.getElementsByTagName("img")[0];
     chrImg.src = `../static/assets/characters/${chr.imageName}`;
+
+    updateURLParameter(window.location.href, "chr", chrName);
 }
 
 function getItem(name){
@@ -361,19 +362,32 @@ function getItem(name){
 }
 
 function changeItem(itemName, itemDiv){
-    let item = getItem(itemName);
-    let itemImg = itemDiv.getElementsByTagName("img")[0];
+    const item = getItem(itemName);
+    const itemImg = itemDiv.getElementsByTagName("img")[0];
     itemImg.src = `../static/assets/items/${item.imageName}`;
+
+    updateURLParameter(window.location.href, "item", itemName)
 }
 
 function getPerk(name){
     return perks[name];
 }
 
+function getPerkInfos(){
+    const perkSelects = document.getElementsByClassName("perks")[0].getElementsByTagName("select");
+    let perkInfos = [];
+
+    for (const perkSelect of perkSelects){
+        perkInfos.push(JSON.parse(perkSelect.value));
+    }
+    
+    return perkInfos;
+}
+
 function changePerk(perkInfo, perkDiv){
-    let [name, level] = JSON.parse(perkInfo);
-    let perk = getPerk(name);
-    let perkImg = perkDiv.getElementsByTagName("img")[0];
+    const [name, level] = JSON.parse(perkInfo);
+    const perk = getPerk(name);
+    const perkImg = perkDiv.getElementsByTagName("img")[0];
     perkImg.src = `../static/assets/perks/${perk.imageName}`;
 
     //change perk background color to represent level
@@ -388,4 +402,114 @@ function changePerk(perkInfo, perkDiv){
             perkImg.style.backgroundColor = "#ffd700";
             break;
     }
+
+    const perkInfos = getPerkInfos();
+    const perkNames = perkInfos.map(perkInfo => `${perkInfo[0]}_${perkInfo[1]}`);
+
+    displayPerkInfo(perkInfos);
+    updatePerksParameters(perkNames);
+}
+
+function displayPerkInfo(perkInfos){
+    const perkData = perkInfos.map(perkInfo => getPerk(perkInfo[0]));
+
+    let perkHTMLs = [];
+
+    //convert to strings
+    for (let i = 0; i < perkData.length; i++){
+        const level = perkInfos[i][1] - 1;
+        let perkHTML = `<div>\n<h2>${perkData[i].name}</h2>\n<ul>\n`;
+
+        for (levelAttr of Object.entries(perkData[i].levelAttributes[level])){
+            if (levelAttr[0]){
+                let attrNum = levelAttr[1][0];
+                const color = attrNum > 0 ? "#00ff00" : "#ff0000";
+
+                perkHTML += `<li style="color: ${color}">${levelAttr[0]}: `;
+
+                if (levelAttr[1][1] == "percent"){
+                    attrNum *= 100;
+                    perkHTML += `${attrNum}%`;
+                }
+
+                else{
+                    perkHTML += attrNum;
+                }
+
+                perkHTML += "</li>\n";
+            }
+        }
+        perkHTML += "</ul>\n</div>\n"
+
+        perkHTMLs += perkHTML;
+    }
+
+    document.getElementsByClassName("perkAttributes")[0].innerHTML = perkHTMLs;
+}
+
+function updatePerksParameters(perkNames){
+    let newAdditionalURL = "";
+    let tempArray = window.location.href.split("?");
+    let baseURL = tempArray[0];
+    let additionalURL = tempArray[1];
+    let temp = "";
+
+    if (additionalURL){
+        tempArray = additionalURL.split("&");
+
+        for (let i = 0; i < tempArray.length; i++){
+            if (tempArray[i].split("=")[0] != "perk"){
+                newAdditionalURL += temp + tempArray[i];
+                temp = "&";
+            }
+        }
+    }
+
+    let perkParams = "";
+    for (let perkName of perkNames){
+        perkParams += `${temp}perk=${perkName}`;
+        temp = "&";
+    }
+
+    let newURL = `${baseURL}?${newAdditionalURL}${perkParams}`;
+
+    window.history.replaceState("", "", newURL);
+    document.getElementById("currentURL").textContent = newURL;
+}
+
+function updateURLParameter(url, param, paramVal){
+    let newAdditionalURL = "";
+    let tempArray = url.split("?");
+    let baseURL = tempArray[0];
+    let additionalURL = tempArray[1];
+    let temp = "";
+
+    if (additionalURL){
+        tempArray = additionalURL.split("&");
+
+        for (let i = 0; i < tempArray.length; i++){
+            if(tempArray[i].split("=")[0] != param){
+                newAdditionalURL += temp + tempArray[i];
+                temp = "&";
+            }
+        }
+    }
+
+    let updatedParam = `${temp}${param}=${paramVal}`;
+    let newURL =`${baseURL}?${newAdditionalURL}${updatedParam}`; 
+
+    window.history.replaceState("", "", newURL);
+    document.getElementById("currentURL").textContent = newURL;
+}
+
+function copyURL(){
+    //create dummy element to copy url from
+    let temp = document.createElement("input");
+    let text = window.location.href;
+
+    document.body.appendChild(temp);
+    temp.value = text;
+    temp.select();
+    document.execCommand("copy");
+    document.body.removeChild(temp);
 }

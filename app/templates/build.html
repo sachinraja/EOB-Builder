@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="keywords" content="EnemyOnBoard, Enemy On Board, EOB, Builds">
         <meta name="description" content="Create and compare Enemy On Board builds!">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>EOB Builder</title>
+
+        <!-- Icons -->
+        <script src="https://kit.fontawesome.com/8fbeccc6cb.js" crossorigin="anonymous"></script>
+
         <link rel="stylesheet" href="{{ url_for('static', filename='css/build.css') }}">
         <link rel="stylesheet" href="../static/css/build.css">
-
         <script src="{{ url_for('static', filename='js/build.js') }}"></script>
-        <script src="../static/js/build.js"></script>
         <script src="{{ url_for('static', filename='js/loadGET.js') }}"></script>
-        <script src="../static/js/loadGET.js"></script>
+        
         <script type="text/javascript">
             window.addEventListener("load", function(){
                 loadGET("{{ character }}", "{{ item }}", {{ perks|safe }});
@@ -24,7 +30,13 @@
         </div>
 
         <div id="main">
-            <div id="menuButtons"></div>
+            <div id="copyURL">
+                <p id="currentURL">http://eob-builder.herokuapp.com/build</p>
+                
+                <div onclick="copyURL();">
+                    <i class="fas fa-copy"></i>
+                </div>
+            </div>
             
             <div id="builds">
                 <div class="build">
@@ -62,6 +74,32 @@
                     
                     <div class="perks">
                         
+                    </div>
+                </div>
+
+                <div class="perkAttributes">
+                    <div>
+                        <h2>Remote Diagnostics</h2>
+                        <ul>
+                            <li style="color: #00ff00">Show Players Below Health: 20%</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2>Toxic Blade</h2>
+                        <ul>
+                            <li style="color: #00ff00">Knife Damage: 1.5</li>
+                            <li style="color: #00ff00">Charged Knife Damage: 4</li>
+                            <li style="color: #00ff00">Slow: 30%</li>
+                            <li style="color: #00ff00">Slow Duration: 1.5</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2>Ballistic Plating</h2>
+                        <ul>
+                            <li style="color: #00ff00">Damage Taken Reduction: 1</li>
+                        </ul>
                     </div>
                 </div>
             </div>
