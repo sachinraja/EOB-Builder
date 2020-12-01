@@ -141,9 +141,9 @@ const perks = {
     ]),
 
     "channeler" : new Perk("Channeler", "channeler.png", [
-        {[perkEnums.COOLDOWNREDUCTION] : [0.15, "percent"], [perkEnums.MISC] : ["Extra Spell"]},
-        {[perkEnums.COOLDOWNREDUCTION] : [0.225, "percent"], [perkEnums.MISC] : ["Extra Spell"]},
-        {[perkEnums.COOLDOWNREDUCTION] : [0.3, "percent"], [perkEnums.MISC] : ["Extra Spell"]}
+        {[perkEnums.COOLDOWNREDUCTION] : [0.15, "percent"], [perkEnums.MISC] : ["Extra Spell", "str"]},
+        {[perkEnums.COOLDOWNREDUCTION] : [0.225, "percent"], [perkEnums.MISC] : ["Extra Spell", "str"]},
+        {[perkEnums.COOLDOWNREDUCTION] : [0.3, "percent"], [perkEnums.MISC] : ["Extra Spell", "str"]}
     ]),
 
     "concealed_blade" : new Perk("Concealed Blade", "concealed_blade.png", [
@@ -444,10 +444,13 @@ function displayPerkInfo(perkInfos){
                         attrStr = `${attrNum}%`;
                         break;
                     
+                    case "str":
+                        attrStr = attrNum;
+                        break;
+
                     case "list":
                         attrStr = attrNum.join(", ")
-                        
-
+                        break;
                 }
 
                 perkHTML += `<li style="color: ${color}">${levelAttr[0]}: ${attrStr}</li>\n`;
