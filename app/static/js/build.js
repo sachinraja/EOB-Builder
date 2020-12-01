@@ -422,21 +422,35 @@ function displayPerkInfo(perkInfos){
 
         for (levelAttr of Object.entries(perkData[i].levelAttributes[level])){
             if (levelAttr[0]){
-                let attrNum = levelAttr[1][0];
-                const color = attrNum > 0 ? "#00ff00" : "#ff0000";
+                let [attrNum, attrType] = levelAttr[1];
+                let attrStr = "";
+                let color = "#00ff00";
 
-                perkHTML += `<li style="color: ${color}">${levelAttr[0]}: `;
+                switch (attrType){
+                    case "fixed":
+                        if (attrNum < 0){
+                            color = "#ff0000";
+                        }
 
-                if (levelAttr[1][1] == "percent"){
-                    attrNum *= 100;
-                    perkHTML += `${attrNum}%`;
+                        attrStr = attrNum;
+                        break;
+                    
+                    case "percent":
+                        if (attrNum < 0){
+                            color = "#ff0000";
+                        }
+
+                        attrNum *= 100;
+                        attrStr = `${attrNum}%`;
+                        break;
+                    
+                    case "list":
+                        attrStr = attrNum.join(", ")
+                        
+
                 }
 
-                else{
-                    perkHTML += attrNum;
-                }
-
-                perkHTML += "</li>\n";
+                perkHTML += `<li style="color: ${color}">${levelAttr[0]}: ${attrStr}</li>\n`;
             }
         }
         perkHTML += "</ul>\n</div>\n"
