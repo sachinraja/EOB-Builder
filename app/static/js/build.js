@@ -527,12 +527,63 @@ function getCharacter(name){
     return characters[name];
 }
 
-function changeCharacter(chrName, chrDiv){
-    const chr = getCharacter(chrName);
-    const chrImg = chrDiv.getElementsByTagName("img")[0];
-    chrImg.src = `../static/assets/characters/${chr.imageName}`;
+function changeCharacter(characterName, characterDiv){
+    const character = getCharacter(characterName);
+    const characterImg = characterDiv.getElementsByTagName("img")[0];
+    characterImg.src = `../static/assets/characters/${character.imageName}`;
 
-    updateURLParameter(window.location.href, "chr", chrName);
+    displayCharacterInfo(character);
+    updateURLParameter(window.location.href, "chr", characterName);
+}
+
+function displayCharacterInfo(character){
+    let characterHTML = `<h2>${character.name}</h2>\n<ul>\n`;
+
+    characterHTML += `<li>Title: ${character.title}</li>\n`;
+    characterHTML += `<li><strong>Ability: ${character.abilityName} 3</strong></li>\n`;
+
+    //get highest level of ability and display it
+    for (const abilityAttr of Object.entries(character.abilityAttributes[2])){
+        let [attrStr, color] = getFromType.apply(this, abilityAttr[1]);
+        characterHTML += `<li style="color: ${color}">${abilityAttr[0]}: ${attrStr}</li>\n`;
+    }
+
+    characterHTML += "</ul>\n";
+    document.getElementsByClassName("characterAttributes")[0].innerHTML = characterHTML;
+}
+
+function getFromType(attrValue, attrType){
+    let attrStr = "";
+    let color = "#00ff00";
+
+    switch (attrType){
+        case "fixed":
+            if (attrValue < 0){
+                color = "#ff0000";
+            }
+
+            attrStr = attrValue;
+            break;
+        
+        case "percent":
+            if (attrValue < 0){
+                color = "#ff0000";
+            }
+
+            attrValue *= 100;
+            attrStr = `${attrValue}%`;
+            break;
+        
+        case "str":
+            attrStr = attrValue;
+            break;
+
+        case "list":
+            attrStr = attrValue.join(", ");
+            break;
+    }
+
+    return [attrStr, color];
 }
 
 function getItem(name){
@@ -549,45 +600,14 @@ function changeItem(itemName, itemDiv){
 }
 
 function displayItemInfo(item){
-    let itemHTML = `<h2>${item.name}</h2>\n<ul>\n`;;
+    let itemHTML = `<h2>${item.name}</h2>\n<ul>\n`;
 
     for (const itemAttr of Object.entries(item.attributes)){
-        let [attrNum, attrType] = itemAttr[1];
-        let attrStr = "";
-        let color = "#00ff00";
-
-        switch (attrType){
-            case "fixed":
-                if (attrNum < 0){
-                    color = "#ff0000";
-                }
-
-                attrStr = attrNum;
-                break;
-            
-            case "percent":
-                if (attrNum < 0){
-                    color = "#ff0000";
-                }
-
-                attrNum *= 100;
-                attrStr = `${attrNum}%`;
-                break;
-            
-            case "str":
-                attrStr = attrNum;
-                break;
-
-            case "list":
-                attrStr = attrNum.join(", ");
-                break;
-        }
-
+        let [attrStr, color] = getFromType.apply(this, itemAttr[1])
         itemHTML += `<li style="color: ${color}">${itemAttr[0]}: ${attrStr}</li>\n`;
     }
 
     itemHTML += "</ul>\n";
-    console.log(itemHTML)
     document.getElementsByClassName("itemAttributes")[0].innerHTML = itemHTML;
 }
 
@@ -643,42 +663,11 @@ function displayPerkInfo(perkInfos){
         let perkHTML = `<div>\n<h2>${perkData[i].name}</h2>\n<ul>\n`;
 
         for (const levelAttr of Object.entries(perkData[i].levelAttributes[level])){
-            let [attrNum, attrType] = levelAttr[1];
-            let attrStr = "";
-            let color = "#00ff00";
-
-            switch (attrType){
-                case "fixed":
-                    if (attrNum < 0){
-                        color = "#ff0000";
-                    }
-
-                    attrStr = attrNum;
-                    break;
-                
-                case "percent":
-                    if (attrNum < 0){
-                        color = "#ff0000";
-                    }
-
-                    attrNum *= 100;
-                    attrStr = `${attrNum}%`;
-                    break;
-                
-                case "str":
-                    attrStr = attrNum;
-                    break;
-
-                case "list":
-                    attrStr = attrNum.join(", ");
-                    break;
-            }
-
+            let [attrStr, color] = getFromType.apply(this, levelAttr[1]);
             perkHTML += `<li style="color: ${color}">${levelAttr[0]}: ${attrStr}</li>\n`;
         }
         
-        perkHTML += "</ul>\n</div>\n"
-
+        perkHTML += "</ul>\n</div>\n";
         perkHTMLs += perkHTML;
     }
 

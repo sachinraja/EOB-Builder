@@ -1,7 +1,7 @@
-function loadCharacter(chrName){
-    let chrDiv = document.getElementsByClassName("character")[0];
-    changeCharacter(chrName, chrDiv);
-    chrDiv.getElementsByTagName("select")[0].value = chrName;
+function loadCharacter(characterName){
+    let characterDiv = document.getElementsByClassName("character")[0];
+    changeCharacter(characterName, characterDiv);
+    characterDiv.getElementsByTagName("select")[0].value = characterName;
 }
 
 function loadItem(itemName){
