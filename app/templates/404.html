@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>404 Error</title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/api.css') }}">
+
+        <style>
+            #main > img{
+                filter: grayscale(1);
+                -webkit-filter: grayscale(1);
+                animation: none;
+                -webkit-animation: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="main">
+            <img src="../static/assets/EOB_logo.svg">
+
+            <h1>404 - Page Not Found</h1>
+
+            <p>This URL does not exist.</p>
+            <p>Go to the <a href="{{ url_for('info') }}">homepage</a>.</p>
+        </div>
+    </body>
+</html>

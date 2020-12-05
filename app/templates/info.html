@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="keywords" content="EnemyOnBoard, Enemy On Board, EOB, Builds">
+        <meta name="description" content="Create and share Enemy On Board builds!">
+        <meta name="og:title" content="EOB Builder">
+        <meta name="og:description" content="Create and share Enemy On Board builds!">
+
+        <title>EOB Builder</title>
+        <link rel="stylesheet" href="../static/css/info.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/info.css') }}">
+
+        <!-- Icons -->
+        <script src="https://kit.fontawesome.com/8fbeccc6cb.js" crossorigin="anonymous"></script>
+
+        <!-- Highlight Code (HLJS) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
+
+        <script>
+            hljs.initHighlightingOnLoad();
+        </script>
+    </head>
+
+    <body>
+        <div id="info">
+            <div>
+                <a href="{{ url_for('build') }}">Create Builds</a>
+                <hr>
+                <p>
+                    Create Enemy On Board builds <a href="{{ url_for('build') }}">here</a>. You can choose a character, starting item, and perks. Information is displayed about the items and perks, so you can see the pros and cons of using them. Once you are done customizing, you can share them with your friends! They will more easily be able to grasp your strategies.
+                </p>
+                <div>
+                    <i class="fab fa-github"></i>
+                    <a style="font-size: 1.2em;" href="https://github.com/xCloudzx/EOB-Builder">GitHub</a>
+                </div>
+            </div>
+            
+            <div>
+                <a href="{{ url_for('api') }}">API</a>
+                <hr>
+                <p>
+                    The API can be queried for item and perk data. It contains many attributes such as damage and slow for each one of them. Perks have different attributes for each level. You can only make one request for information on either an item or a perk in each call.
+                </p>
+                
+                <div>
+                    <h2>Resources</h2>
+                    <hr>
+                    <p>
+                        Each attribute has a two elements: the first one is the value associated with it and the second one is the type of the value (either fixed, percent, str, or list).
+                    </p>
+                    <h3>Requesting Character Info</h3>
+
+                    <p>
+                        The URL for requesting information on an character is formatted like so: <code>http://eob-builder.herokuapp.com/api/?character=&lt;character_name&gt;</code>. 
+                        Full list of the character names:
+                    </p>
+
+                    <ul>
+                        <li>otto</li>
+                        <li>triss</li>
+                        <li>virgil</li>
+                        <li>lucius</li>
+                        <li>xenna</li>
+                        <li>monkus</li>
+                        <li>sarrel</li>
+                        <li>niko</li>
+                        <li>silas</li>
+                    </ul>
+
+                    <p>
+                        It will return JSON data about the item. 
+                        The following is an example of what will be returned:
+                    </p>
+                    <pre><code>{
+    "abilityAttributes": [
+        {
+        "Cooldown": [
+        40,
+        "fixed"
+        ],
+        "Damage Reduction": [
+        0.4,
+        "percent"
+        ],
+        "Duration": [
+        5,
+        "fixed"
+        ],
+        "Knockback Reduction": [
+        0.4,
+        "percent"
+        ]
+        },
+        {
+        "Cooldown": [
+        30,
+        "fixed"
+        ],
+        "Damage Reduction": [
+        0.5,
+        "percent"
+        ],
+        "Duration": [
+        5,
+        "fixed"
+        ],
+        "Knockback Reduction": [
+        0.5,
+        "percent"
+        ]
+        },
+        {
+        "Cooldown": [
+        20,
+        "fixed"
+        ],
+        "Damage Reduction": [
+        0.6,
+        "percent"
+        ],
+        "Duration": [
+        5,
+        "fixed"
+        ],
+        "Knockback Reduction": [
+        0.6,
+        "percent"
+        ]
+        }
+    ],
+    "abilityName": "Adrenaline Rush",
+    "name": "Lucius",
+    "title": "Trapper",
+    "uniquePerks": [
+        "knuckle_dusters",
+        "second_wind"
+    ]
+}</code></pre>
+
+                    <p>
+                        Each level of a character's ability (0, 1, 2) has its own set of data and can be accessed. <code>abilityAttributes</code> is a list. Keep in mind that the perks in <code>uniquePerks</code> are formatted for the API so their values can easily be fetched.
+                    </p>
+
+                    <h3>Requesting Item Info</h3>
+
+                    <p>
+                        The URL for requesting information on an item is formatted like so: <code>http://eob-builder.herokuapp.com/api/?item=&lt;item_name&gt;</code>. 
+                        Full list of the item names:
+                    </p>
+
+                    <ul>
+                        <li>health_kit</li>
+                        <li>stun_gun</li>
+                        <li>snare_traps</li>
+                        <li>force_baton</li>
+                        <li>EMP</li>
+                        <li>jump_drive</li>
+                        <li>hookshot</li>
+                        <li>stim_serum</li>
+                        <li>force_blaster</li>
+                    </ul>
+
+                    <p>
+                        It will return JSON data about the item. 
+                        The following is an example of what will be returned:
+                    </p>
+                    <pre><code>{
+    "attributes": {
+        "Cast Time": [
+            0.75,
+            "fixed"
+        ],
+        "Charged Damage": [
+            35,
+            "fixed"
+        ],
+        "Charged Slow": [
+            100,
+            "fixed"
+        ],
+        "Damage": [
+            20,
+            "fixed"
+        ],
+        "Duration": [
+            1.25,
+            "fixed"
+        ],
+        "Gen Charge": [
+            "Empower",
+            "str"
+        ],
+        "Max Ammo": [
+            1,
+            "fixed"
+        ],
+        "Radius": [
+            3,
+            "fixed"
+        ],
+        "Slow": [
+            60,
+            "fixed"
+        ],
+        "Type": [
+            "Starting",
+            "str"
+        ]
+    },
+    "name": "EMP"
+}</code></pre>
+
+                    <h3>Requesting Perk Info</h3>
+
+                    <p>
+                        The URL for requesting information on an item is formatted like so: <code>http://eob-builder.herokuapp.com/api/?perk=&lt;perk_name&gt;</code>. 
+                        Full list of the perk names:
+                    </p>
+
+                    <ul>
+                        <li>advanced_optics</li>
+                        <li>alien_affinity</li>
+                        <li>alien_hunter</li>
+                        <li>backstab</li>
+                        <li>ballistic_plating</li>
+                        <li>battle_axe</li>
+                        <li>bedside_manner</li>
+                        <li>bulletproof_vest</li>
+                        <li>channeler</li>
+                        <li>concealed_blade</li>
+                        <li>critical_failure</li>
+                        <li>cybernetics</li>
+                        <li>dead_shot</li>
+                        <li>espresso</li>
+                        <li>flanking</li>
+                        <li>fusion_cell</li>
+                        <li>heavy_wrench</li>
+                        <li>jerry_rigged</li>
+                        <li>knuckle_dusters</li>
+                        <li>lean_build</li>
+                        <li>lightweight</li>
+                        <li>make_it_rain</li>
+                        <li>mercenary</li>
+                        <li>nano_serum</li>
+                        <li>nano_virus</li>
+                        <li>nanoweave_vest</li>
+                        <li>ninja</li>
+                        <li>nope_nope_nope</li>
+                        <li>overdrive</li>
+                        <li>pack_tactics</li>
+                        <li>remote_diagnostics</li>
+                        <li>revenge</li>
+                        <li>robust</li>
+                        <li>scavenger</li>
+                        <li>scrappy</li>
+                        <li>second_wind</li>
+                        <li>shock_therapy</li>
+                        <li>slow_drip</li>
+                        <li>symbiont_expert</li>
+                        <li>thermal_imaging</li>
+                        <li>toxic_blade</li>
+                        <li>utility_belt</li>
+                    </ul>
+
+                    <p>
+                        It will return JSON data about the item. 
+                        The following is an example of what will be returned:
+                    </p>
+
+                    <pre><code>{
+    "levelAttributes": [
+        {
+            "Charged Throwing Axe Damage": [
+                2,
+                "fixed"
+            ],
+            "Slow": [
+                0.3,
+                "percent"
+            ],
+            "Slow Duration": [
+                1,
+                "fixed"
+            ],
+            "Throwing Axe Damage": [
+                2,
+                "fixed"
+            ]
+        },
+        {
+            "Charged Throwing Axe Damage": [
+                4,
+                "fixed"
+            ],
+            "Slow": [
+                0.3,
+                "percent"
+            ],
+            "Slow Duration": [
+                1.5,
+                "fixed"
+            ],
+            "Throwing Axe Damage": [
+                2,
+                "fixed"
+            ]
+        },
+        {
+            "Charged Throwing Axe Damage": [
+                6,
+                "fixed"
+            ],
+            "Slow": [
+                0.3,
+                "percent"
+            ],
+            "Slow Duration": [
+                2,
+                "fixed"
+            ],
+            "Throwing Axe Damage": [
+                2,
+                "fixed"
+            ]
+        }
+    ],
+    "name": "Battle Axe"
+}</code></pre>
+
+                    <p>
+                        Each level of a perk (0, 1, 2) has its own set of data and can be accessed. <code>levelAttributes</code> is a list.
+                    </p>
+
+                    <h3>400 Bad Request</h3>
+                    <p>
+                        If you request an character, item, or perk that is not on the lists here, you will get a 400 status error as the API cannot fetch for that value. 
+                        The following is an example of what will be returned:
+                    </p>
+
+                    <pre><code>{
+    "message": "Character not found."
+}</code></pre>
+                </div>
+                
+                <div>
+                    <h2>Rate Limiting</h2>
+                    <hr>
+                    <p>
+                        Rate limits are assigned on an IP address basis. You can be rate limited if you make too many requests in a period of time. Currently, there is a maximum of 1000 requests per 10 minutes. If you exceed this, you will receive information that will help in accounting for rate limits. 
+                        The following will be returned:
+                    </p>
+                    
+                    <pre><code>{
+    "message": "You are being rate limited.", 
+    "retry-after": 101.23
+}</code></pre>
+
+                    <p>
+                        <code>retry-after</code> is the amount of time in seconds until another request can be made.
+                    </p>
+
+                    <h3>Headers</h3>
+
+                    <p>
+                        Headers will be sent will be sent with all responses and can be read to view information on rate limiting. 
+                        The headers in the response will look like the following:
+                    </p>
+
+                    <pre><code>&lt; HTTP/1.1 429 TOO MANY REQUESTS
+&lt; Content-Type: application/json
+&lt; Retry-After: 102
+&lt; X-RateLimit-Limit: 10
+&lt; X-RateLimit-Remaining: 0
+&lt; X-RateLimit-Reset: 1607058918.26322
+&lt; X-RateLimit-Reset-After: 101.23
+{
+  "message": "You are being rate limited.",
+  "retry_after": 101.23
+}</code></pre>
+
+                    <p>
+                        <code>Retry-After</code> is only sent with rate limits, but the other headers are sent with every request:
+                    </p>
+
+                    <ul>
+                        <li>Retry-After: The amount of time in seconds in which another request can be made.</li>
+                        <li>X-RateLimit-Limit: The maximum number of requests that can be made.</li>
+                        <li>X-RateLimit-Remaining: The number of remaining requests that can be made.</li>
+                        <li>X-RateLimit-Reset: The epoch time in which the rate limit resets.</li>
+                        <li>X-RateLimit-Reset-After: The amount of time in seconds in which the current rate limit will be reset. It can fluctuate in decimals due to millisecond precision.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

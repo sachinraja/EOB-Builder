@@ -1,0 +1,491 @@
+{
+ "lucius": {
+  "abilityAttributes": [
+   {
+    "Cooldown": [
+     40,
+     "fixed"
+    ],
+    "Damage Reduction": [
+     0.4,
+     "percent"
+    ],
+    "Duration": [
+     5,
+     "fixed"
+    ],
+    "Knockback Reduction": [
+     0.4,
+     "percent"
+    ]
+   },
+   {
+    "Cooldown": [
+     30,
+     "fixed"
+    ],
+    "Damage Reduction": [
+     0.5,
+     "percent"
+    ],
+    "Duration": [
+     5,
+     "fixed"
+    ],
+    "Knockback Reduction": [
+     0.5,
+     "percent"
+    ]
+   },
+   {
+    "Cooldown": [
+     20,
+     "fixed"
+    ],
+    "Damage Reduction": [
+     0.6,
+     "percent"
+    ],
+    "Duration": [
+     5,
+     "fixed"
+    ],
+    "Knockback Reduction": [
+     0.6,
+     "percent"
+    ]
+   }
+  ],
+  "abilityName": "Adrenaline Rush",
+  "name": "Lucius",
+  "title": "Trapper",
+  "uniquePerks": [
+   "knuckle_dusters",
+   "second_wind"
+  ]
+ },
+ "monkus": {
+  "abilityAttributes": [
+   {
+    "Cooldown": [
+     30,
+     "fixed"
+    ],
+    "Miscellaneous": [
+     "Invincible during roll",
+     "str"
+    ]
+   },
+   {
+    "Cooldown": [
+     25,
+     "fixed"
+    ],
+    "Miscellaneous": [
+     "Invincible during roll",
+     "str"
+    ]
+   },
+   {
+    "Cooldown": [
+     15,
+     "fixed"
+    ],
+    "Miscellaneous": [
+     "Invincible during roll",
+     "str"
+    ]
+   }
+  ],
+  "abilityName": "Monkey Roll",
+  "name": "Monkus",
+  "title": "Space Monkey",
+  "uniquePerks": [
+   "lean_build",
+   "scrappy"
+  ]
+ },
+ "niko": {
+  "abilityAttributes": [
+   {
+    "Cooldown": [
+     45,
+     "fixed"
+    ],
+    "Damage": [
+     8,
+     "fixed"
+    ],
+    "Door Lock Duration": [
+     3,
+     "fixed"
+    ],
+    "Stun Duration": [
+     1,
+     "fixed"
+    ]
+   },
+   {
+    "Cooldown": [
+     40,
+     "fixed"
+    ],
+    "Damage": [
+     12,
+     "fixed"
+    ],
+    "Door Lock Duration": [
+     3,
+     "fixed"
+    ],
+    "Stun Duration": [
+     1,
+     "fixed"
+    ]
+   },
+   {
+    "Cooldown": [
+     35,
+     "fixed"
+    ],
+    "Damage": [
+     16,
+     "fixed"
+    ],
+    "Door Lock Duration": [
+     3,
+     "fixed"
+    ],
+    "Stun Duration": [
+     1,
+     "fixed"
+    ]
+   }
+  ],
+  "abilityName": "Access Denied",
+  "name": "Niko",
+  "title": "Officer",
+  "uniquePerks": [
+   "utility_belt",
+   "bulletproof_vest"
+  ]
+ },
+ "otto": {
+  "abilityAttributes": [
+   {
+    "Cooldown": [
+     70,
+     "fixed"
+    ],
+    "Duration": [
+     5,
+     "fixed"
+    ],
+    "Total healing": [
+     15,
+     "fixed"
+    ]
+   },
+   {
+    "Cooldown": [
+     60,
+     "fixed"
+    ],
+    "Duration": [
+     5,
+     "fixed"
+    ],
+    "Total healing": [
+     20,
+     "fixed"
+    ]
+   },
+   {
+    "Cooldown": [
+     50,
+     "fixed"
+    ],
+    "Duration": [
+     5,
+     "fixed"
+    ],
+    "Total healing": [
+     25,
+     "fixed"
+    ]
+   }
+  ],
+  "abilityName": "Bio-Stabilizer",
+  "name": "Otto",
+  "title": "Medic",
+  "uniquePerks": [
+   "bedside_manner",
+   "remote_diagnostics"
+  ]
+ },
+ "sarrel": {
+  "abilityAttributes": [
+   {
+    "Cooldown": [
+     25,
+     "fixed"
+    ],
+    "Miscellaneous": [
+     "Steals an ability",
+     "str"
+    ]
+   },
+   {
+    "Cooldown": [
+     20,
+     "fixed"
+    ],
+    "Miscellaneous": [
+     "Steals an ability",
+     "str"
+    ]
+   },
+   {
+    "Cooldown": [
+     15,
+     "fixed"
+    ],
+    "Miscellaneous": [
+     "Steals an ability",
+     "str"
+    ]
+   }
+  ],
+  "abilityName": "Ability Steal",
+  "name": "Sarrel",
+  "title": "Grifter",
+  "uniquePerks": [
+   "channeler",
+   "alien_affinity"
+  ]
+ },
+ "silas": {
+  "abilityAttributes": [
+   {
+    "Cooldown": [
+     20,
+     "fixed"
+    ],
+    "Duration": [
+     8,
+     "fixed"
+    ],
+    "Visible Radius": [
+     6,
+     "fixed"
+    ]
+   },
+   {
+    "Cooldown": [
+     20,
+     "fixed"
+    ],
+    "Duration": [
+     9,
+     "fixed"
+    ],
+    "Visible Radius": [
+     5.5,
+     "fixed"
+    ]
+   },
+   {
+    "Cooldown": [
+     20,
+     "fixed"
+    ],
+    "Duration": [
+     10,
+     "fixed"
+    ],
+    "Visible Radius": [
+     5,
+     "fixed"
+    ]
+   }
+  ],
+  "abilityName": "Shadow Sneak",
+  "name": "Silas",
+  "title": "Assassin",
+  "uniquePerks": [
+   "concealed_blade",
+   "backstab"
+  ]
+ },
+ "triss": {
+  "abilityAttributes": [
+   {
+    "Cooldown": [
+     70,
+     "fixed"
+    ],
+    "Duration": [
+     4,
+     "fixed"
+    ],
+    "Miscellaneous": [
+     "Reveals Players",
+     "str"
+    ]
+   },
+   {
+    "Cooldown": [
+     60,
+     "fixed"
+    ],
+    "Duration": [
+     5,
+     "fixed"
+    ],
+    "Miscellaneous": [
+     "Reveals Players",
+     "str"
+    ]
+   },
+   {
+    "Cooldown": [
+     45,
+     "fixed"
+    ],
+    "Duration": [
+     6,
+     "fixed"
+    ],
+    "Miscellaneous": [
+     "Reveals Players",
+     "str"
+    ]
+   }
+  ],
+  "abilityName": "Target Location",
+  "name": "Triss",
+  "title": "Spy",
+  "uniquePerks": [
+   "ninja",
+   "advanced_optics"
+  ]
+ },
+ "virgil": {
+  "abilityAttributes": [
+   {
+    "Cooldown": [
+     40,
+     "fixed"
+    ],
+    "Duration": [
+     5,
+     "fixed"
+    ],
+    "Miscellaneous": [
+     "Teleports Players",
+     "str"
+    ]
+   },
+   {
+    "Cooldown": [
+     30,
+     "fixed"
+    ],
+    "Duration": [
+     5,
+     "fixed"
+    ],
+    "Miscellaneous": [
+     "Teleports Players",
+     "str"
+    ]
+   },
+   {
+    "Cooldown": [
+     20,
+     "fixed"
+    ],
+    "Duration": [
+     5,
+     "fixed"
+    ],
+    "Miscellaneous": [
+     "Teleports Players",
+     "str"
+    ]
+   }
+  ],
+  "abilityName": "Teleportation Field",
+  "name": "Virgil",
+  "title": "Scientist",
+  "uniquePerks": [
+   "critical_failure",
+   "fusion_cell"
+  ]
+ },
+ "xenna": {
+  "abilityAttributes": [
+   {
+    "Cast Time": [
+     0.75,
+     "fixed"
+    ],
+    "Cooldown": [
+     20,
+     "fixed"
+    ],
+    "Damage": [
+     4,
+     "fixed"
+    ],
+    "Duration": [
+     10,
+     "fixed"
+    ]
+   },
+   {
+    "Cast Time": [
+     0.6,
+     "fixed"
+    ],
+    "Cooldown": [
+     20,
+     "fixed"
+    ],
+    "Damage": [
+     6,
+     "fixed"
+    ],
+    "Duration": [
+     15,
+     "fixed"
+    ]
+   },
+   {
+    "Cast Time": [
+     0.45,
+     "fixed"
+    ],
+    "Cooldown": [
+     20,
+     "fixed"
+    ],
+    "Damage": [
+     8,
+     "fixed"
+    ],
+    "Duration": [
+     20,
+     "fixed"
+    ]
+   }
+  ],
+  "abilityName": "Torrelian Shield",
+  "name": "Xenna",
+  "title": "Captain",
+  "uniquePerks": [
+   "deadshot",
+   "mercenary"
+  ]
+ }
+}

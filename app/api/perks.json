@@ -1,0 +1,1214 @@
+{
+    "advanced_optics": {
+        "levelAttributes": [
+            {
+                "Camera Zoom": [
+                    1,
+                    "fixed"
+                ]
+            },
+            {
+                "Camera Zoom": [
+                    2,
+                    "fixed"
+                ]
+            },
+            {
+                "Camera Zoom": [
+                    3,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Advanced Optics"
+    },
+    "alien_affinity": {
+        "levelAttributes": [
+            {
+                "Alien Ability Steal": [
+                    1,
+                    "fixed"
+                ]
+            },
+            {
+                "Alien Ability Steal": [
+                    2,
+                    "fixed"
+                ]
+            },
+            {
+                "Alien Ability Steal": [
+                    3,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Alien Affinity"
+    },
+    "alien_hunter": {
+        "levelAttributes": [
+            {
+                "Alien Damage": [
+                    0.75,
+                    "percent"
+                ]
+            },
+            {
+                "Alien Damage": [
+                    0.1,
+                    "percent"
+                ]
+            },
+            {
+                "Alien Damage": [
+                    0.15,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Alien Hunter"
+    },
+    "backstab": {
+        "levelAttributes": [
+            {
+                "Bleed Damage": [
+                    4,
+                    "fixed"
+                ],
+                "Duration": [
+                    3,
+                    "fixed"
+                ]
+            },
+            {
+                "Bleed Damage": [
+                    5,
+                    "fixed"
+                ],
+                "Duration": [
+                    3,
+                    "fixed"
+                ]
+            },
+            {
+                "Bleed Damage": [
+                    6,
+                    "fixed"
+                ],
+                "Duration": [
+                    3,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Backstab"
+    },
+    "ballistic_plating": {
+        "levelAttributes": [
+            {
+                "Damage Taken Reduction": [
+                    0.5,
+                    "fixed"
+                ]
+            },
+            {
+                "Damage Taken Reduction": [
+                    1,
+                    "fixed"
+                ]
+            },
+            {
+                "Damage Taken Reduction": [
+                    1.5,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Ballistic Plating"
+    },
+    "battle_axe": {
+        "levelAttributes": [
+            {
+                "Charged Throwing Axe Damage": [
+                    2,
+                    "fixed"
+                ],
+                "Slow": [
+                    0.3,
+                    "percent"
+                ],
+                "Slow Duration": [
+                    1,
+                    "fixed"
+                ],
+                "Throwing Axe Damage": [
+                    2,
+                    "fixed"
+                ]
+            },
+            {
+                "Charged Throwing Axe Damage": [
+                    4,
+                    "fixed"
+                ],
+                "Slow": [
+                    0.3,
+                    "percent"
+                ],
+                "Slow Duration": [
+                    1.5,
+                    "fixed"
+                ],
+                "Throwing Axe Damage": [
+                    2,
+                    "fixed"
+                ]
+            },
+            {
+                "Charged Throwing Axe Damage": [
+                    6,
+                    "fixed"
+                ],
+                "Slow": [
+                    0.3,
+                    "percent"
+                ],
+                "Slow Duration": [
+                    2,
+                    "fixed"
+                ],
+                "Throwing Axe Damage": [
+                    2,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Battle Axe"
+    },
+    "bedside_manner": {
+        "levelAttributes": [
+            {
+                "Health Healed for Max HP": [
+                    6,
+                    "fixed"
+                ]
+            },
+            {
+                "Health Healed for Max HP": [
+                    5,
+                    "fixed"
+                ]
+            },
+            {
+                "Health Healed for Max HP": [
+                    4,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Bedside Manner"
+    },
+    "bulletproof_vest": {
+        "levelAttributes": [
+            {
+                "Armor": [
+                    30,
+                    "fixed"
+                ]
+            },
+            {
+                "Armor": [
+                    40,
+                    "fixed"
+                ]
+            },
+            {
+                "Armor": [
+                    50,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Bulletproof Vest"
+    },
+    "channeler": {
+        "levelAttributes": [
+            {
+                "Cooldown Reduction": [
+                    0.15,
+                    "percent"
+                ],
+                "Miscellaneous": [
+                    "Extra Spell",
+                    "str"
+                ]
+            },
+            {
+                "Cooldown Reduction": [
+                    0.225,
+                    "percent"
+                ],
+                "Miscellaneous": [
+                    "Extra Spell",
+                    "str"
+                ]
+            },
+            {
+                "Cooldown Reduction": [
+                    0.3,
+                    "percent"
+                ],
+                "Miscellaneous": [
+                    "Extra Spell",
+                    "str"
+                ]
+            }
+        ],
+        "name": "Channeler"
+    },
+    "concealed_blade": {
+        "levelAttributes": [
+            {
+                "Ability Damage": [
+                    8,
+                    "fixed"
+                ]
+            },
+            {
+                "Ability Damage": [
+                    9,
+                    "fixed"
+                ]
+            },
+            {
+                "Ability Damage": [
+                    10,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Concealed Blade"
+    },
+    "critical_failure": {
+        "levelAttributes": [
+            {
+                "Ability Damage": [
+                    10,
+                    "fixed"
+                ]
+            },
+            {
+                "Ability Damage": [
+                    15,
+                    "fixed"
+                ]
+            },
+            {
+                "Ability Damage": [
+                    20,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Critical Failure"
+    },
+    "cybernetics": {
+        "levelAttributes": [
+            {
+                "Damage": [
+                    0.05,
+                    "percent"
+                ]
+            },
+            {
+                "Damage": [
+                    0.075,
+                    "percent"
+                ]
+            },
+            {
+                "Damage": [
+                    0.1,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Cybernetics"
+    },
+    "dead_shot": {
+        "levelAttributes": [
+            {
+                "Damage": [
+                    4,
+                    "fixed"
+                ]
+            },
+            {
+                "Damage": [
+                    7,
+                    "fixed"
+                ]
+            },
+            {
+                "Damage": [
+                    10,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Dead Shot"
+    },
+    "espresso": {
+        "levelAttributes": [
+            {
+                "Cooldown Reduction": [
+                    0.1,
+                    "percent"
+                ]
+            },
+            {
+                "Cooldown Reduction": [
+                    0.175,
+                    "percent"
+                ]
+            },
+            {
+                "Cooldown Reduction": [
+                    0.25,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Espresso"
+    },
+    "flanking": {
+        "levelAttributes": [
+            {
+                "Damage": [
+                    0.03,
+                    "percent"
+                ]
+            },
+            {
+                "Damage": [
+                    0.04,
+                    "percent"
+                ]
+            },
+            {
+                "Damage": [
+                    0.05,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Flanking"
+    },
+    "fusion_cell": {
+        "levelAttributes": [
+            {
+                "Charge Items": [
+                    [
+                        "Starting"
+                    ],
+                    "list"
+                ]
+            },
+            {
+                "Charge Items": [
+                    [
+                        "Starting",
+                        "Armory"
+                    ],
+                    "list"
+                ]
+            },
+            {
+                "Charge Items": [
+                    [
+                        "Starting",
+                        "Armory",
+                        "Heavy"
+                    ],
+                    "list"
+                ]
+            }
+        ],
+        "name": "Fusion Cell"
+    },
+    "heavy_wrench": {
+        "levelAttributes": [
+            {
+                "Charged Wrench Damage": [
+                    4,
+                    "fixed"
+                ],
+                "Knockback": [
+                    0.1,
+                    "percent"
+                ],
+                "Wrench Damage": [
+                    2,
+                    "fixed"
+                ]
+            },
+            {
+                "Charged Wrench Damage": [
+                    7,
+                    "fixed"
+                ],
+                "Knockback": [
+                    0.3,
+                    "percent"
+                ],
+                "Wrench Damage": [
+                    3,
+                    "fixed"
+                ]
+            },
+            {
+                "Charged Wrench Damage": [
+                    10,
+                    "fixed"
+                ],
+                "Knockback": [
+                    0.5,
+                    "percent"
+                ],
+                "Wrench Damage": [
+                    4,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Heavy Wrench"
+    },
+    "jerry_rigged": {
+        "levelAttributes": [
+            {
+                "Charge Items": [
+                    [
+                        "Stim Cola",
+                        "Security Camera"
+                    ],
+                    "list"
+                ]
+            },
+            {
+                "Charge Items": [
+                    [
+                        "Stim Cola",
+                        "Security Camera",
+                        "Shiv"
+                    ],
+                    "list"
+                ]
+            },
+            {
+                "Charge Items": [
+                    [
+                        "Stim Cola",
+                        "Security Camera",
+                        "Shiv",
+                        "Bandages"
+                    ],
+                    "list"
+                ]
+            }
+        ],
+        "name": "Jerry Rigged"
+    },
+    "knuckle_dusters": {
+        "levelAttributes": [
+            {
+                "Ability Alien Damage": [
+                    16,
+                    "fixed"
+                ],
+                "Ability Damage": [
+                    6,
+                    "fixed"
+                ]
+            },
+            {
+                "Ability Alien Damage": [
+                    18,
+                    "fixed"
+                ],
+                "Ability Damage": [
+                    7,
+                    "fixed"
+                ]
+            },
+            {
+                "Ability Alien Damage": [
+                    20,
+                    "fixed"
+                ],
+                "Ability Damage": [
+                    8,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Knuckle Dusters"
+    },
+    "lean_build": {
+        "levelAttributes": [
+            {
+                "Max HP": [
+                    -10,
+                    "fixed"
+                ],
+                "Movement Speed": [
+                    0.02,
+                    "percent"
+                ]
+            },
+            {
+                "Max HP": [
+                    -15,
+                    "fixed"
+                ],
+                "Movement Speed": [
+                    0.04,
+                    "percent"
+                ]
+            },
+            {
+                "Max HP": [
+                    -20,
+                    "fixed"
+                ],
+                "Movement Speed": [
+                    0.06,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Lean Build"
+    },
+    "lightweight": {
+        "levelAttributes": [
+            {
+                "Movement Speed": [
+                    0.2,
+                    "percent"
+                ]
+            },
+            {
+                "Movement Speed": [
+                    0.4,
+                    "percent"
+                ]
+            },
+            {
+                "Movement Speed": [
+                    0.6,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Lightweight"
+    },
+    "make_it_rain": {
+        "levelAttributes": [
+            {
+                "Additional Credits": [
+                    0.05,
+                    "percent"
+                ]
+            },
+            {
+                "Additional Credits": [
+                    0.1,
+                    "percent"
+                ]
+            },
+            {
+                "Additional Credits": [
+                    0.15,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Make It Rain"
+    },
+    "mercenary": {
+        "levelAttributes": [
+            {
+                "Kill Charge": [
+                    [
+                        "Starting"
+                    ],
+                    "list"
+                ]
+            },
+            {
+                "Kill Charge": [
+                    [
+                        "Starting",
+                        "Armory"
+                    ],
+                    "list"
+                ]
+            },
+            {
+                "Kill Charge": [
+                    [
+                        "Starting",
+                        "Armory",
+                        "Heavy"
+                    ],
+                    "list"
+                ]
+            }
+        ],
+        "name": "Mercenary"
+    },
+    "nano_serum": {
+        "levelAttributes": [
+            {
+                "Healing": [
+                    0.15,
+                    "percent"
+                ]
+            },
+            {
+                "Healing": [
+                    0.225,
+                    "percent"
+                ]
+            },
+            {
+                "Healing": [
+                    0.3,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Nano Serum"
+    },
+    "nano_virus": {
+        "levelAttributes": [
+            {
+                "Vaccine Duration": [
+                    1,
+                    "fixed"
+                ]
+            },
+            {
+                "Vaccine Duration": [
+                    1.5,
+                    "fixed"
+                ]
+            },
+            {
+                "Vaccine Duration": [
+                    2,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Nano Virus"
+    },
+    "nanoweave_vest": {
+        "levelAttributes": [
+            {
+                "Damage Taken Reduction": [
+                    0.05,
+                    "percent"
+                ]
+            },
+            {
+                "Damage Taken Reduction": [
+                    0.075,
+                    "percent"
+                ]
+            },
+            {
+                "Damage Taken Reduction": [
+                    0.1,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Nanoweave Vest"
+    },
+    "ninja": {
+        "levelAttributes": [
+            {
+                "Alone Movement Speed": [
+                    0.12,
+                    "percent"
+                ]
+            },
+            {
+                "Alone Movement Speed": [
+                    0.14,
+                    "percent"
+                ]
+            },
+            {
+                "Alone Movement Speed": [
+                    0.16,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Ninja"
+    },
+    "nope_nope_nope": {
+        "levelAttributes": [
+            {
+                "Alien Nearby Movement Speed": [
+                    0.03,
+                    "percent"
+                ]
+            },
+            {
+                "Alien Nearby Movement Speed": [
+                    0.06,
+                    "percent"
+                ]
+            },
+            {
+                "Alien Nearby Movement Speed": [
+                    0.1,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Nope Nope Nope"
+    },
+    "overdrive": {
+        "levelAttributes": [
+            {
+                "Duration": [
+                    10,
+                    "fixed"
+                ],
+                "Generator Movement Speed": [
+                    0.03,
+                    "percent"
+                ]
+            },
+            {
+                "Duration": [
+                    10,
+                    "fixed"
+                ],
+                "Generator Movement Speed": [
+                    0.06,
+                    "percent"
+                ]
+            },
+            {
+                "Duration": [
+                    10,
+                    "fixed"
+                ],
+                "Generator Movement Speed": [
+                    0.1,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Overdrive"
+    },
+    "pack_tactics": {
+        "levelAttributes": [
+            {
+                "Duration": [
+                    10,
+                    "fixed"
+                ],
+                "Player Nearby Movement Speed": [
+                    0.03,
+                    "percent"
+                ]
+            },
+            {
+                "Duration": [
+                    10,
+                    "fixed"
+                ],
+                "Player Nearby Movement Speed": [
+                    0.06,
+                    "percent"
+                ]
+            },
+            {
+                "Duration": [
+                    10,
+                    "fixed"
+                ],
+                "Player Nearby Movement Speed": [
+                    0.1,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Pack Tactics"
+    },
+    "remote_diagnostics": {
+        "levelAttributes": [
+            {
+                "Show Players Below Health": [
+                    0.2,
+                    "percent"
+                ]
+            },
+            {
+                "Show Players Below Health": [
+                    0.3,
+                    "percent"
+                ]
+            },
+            {
+                "Show Players Below Health": [
+                    0.4,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Remote Diagnostics"
+    },
+    "revenge": {
+        "levelAttributes": [
+            {
+                "Damage": [
+                    0.075,
+                    "percent"
+                ]
+            },
+            {
+                "Damage": [
+                    0.1,
+                    "percent"
+                ]
+            },
+            {
+                "Damage": [
+                    0.15,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Revenge"
+    },
+    "robust": {
+        "levelAttributes": [
+            {
+                "Max HP": [
+                    10,
+                    "percent"
+                ]
+            },
+            {
+                "Max HP": [
+                    15,
+                    "percent"
+                ]
+            },
+            {
+                "Max HP": [
+                    20,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Robust"
+    },
+    "scavenger": {
+        "levelAttributes": [
+            {
+                "Extra Scavenge Items": [
+                    1,
+                    "fixed"
+                ]
+            },
+            {
+                "Extra Scavenge Items": [
+                    2,
+                    "fixed"
+                ]
+            },
+            {
+                "Extra Scavenge Items": [
+                    3,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Scavenger"
+    },
+    "scrappy": {
+        "levelAttributes": [
+            {
+                "Cooldown Reduction on Damage Taken": [
+                    5,
+                    "fixed"
+                ]
+            },
+            {
+                "Cooldown Reduction on Damage Taken": [
+                    4,
+                    "fixed"
+                ]
+            },
+            {
+                "Cooldown Reduction on Damage Taken": [
+                    3,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Scrappy"
+    },
+    "second_wind": {
+        "levelAttributes": [
+            {
+                "Survive Killing Blow with Health": [
+                    5,
+                    "fixed"
+                ]
+            },
+            {
+                "Survive Killing Blow with Health": [
+                    10,
+                    "fixed"
+                ]
+            },
+            {
+                "Survive Killing Blow with Health": [
+                    15,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Second Wind"
+    },
+    "shock_therapy": {
+        "levelAttributes": [
+            {
+                "Generator Healing": [
+                    5,
+                    "fixed"
+                ],
+                "Generator Max HP Bonus": [
+                    2,
+                    "fixed"
+                ]
+            },
+            {
+                "Generator Healing": [
+                    7.5,
+                    "fixed"
+                ],
+                "Generator Max HP Bonus": [
+                    4,
+                    "fixed"
+                ]
+            },
+            {
+                "Generator Healing": [
+                    10,
+                    "fixed"
+                ],
+                "Generator Max HP Bonus": [
+                    6,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Shock Therapy"
+    },
+    "slow_drip": {
+        "levelAttributes": [
+            {
+                "Healing per Second": [
+                    0.125,
+                    "fixed"
+                ]
+            },
+            {
+                "Healing per Second": [
+                    0.25,
+                    "fixed"
+                ]
+            },
+            {
+                "Healing per Second": [
+                    0.4,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Slow Drip"
+    },
+    "symbiont_expert": {
+        "levelAttributes": [
+            {
+                "Alien Evolution Points Gain": [
+                    0.05,
+                    "percent"
+                ],
+                "Human Evolution Points Reduction": [
+                    0.05,
+                    "percent"
+                ]
+            },
+            {
+                "Alien Evolution Points Gain": [
+                    0.075,
+                    "percent"
+                ],
+                "Human Evolution Points Reduction": [
+                    0.075,
+                    "percent"
+                ]
+            },
+            {
+                "Alien Evolution Points Gain": [
+                    0.1,
+                    "percent"
+                ],
+                "Human Evolution Points Reduction": [
+                    0.1,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Symbiont Expert"
+    },
+    "thermal_imaging": {
+        "levelAttributes": [
+            {
+                "Camera Vision": [
+                    1,
+                    "fixed"
+                ]
+            },
+            {
+                "Camera Vision": [
+                    2,
+                    "fixed"
+                ]
+            },
+            {
+                "Camera Vision": [
+                    3,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Thermal Imaging"
+    },
+    "toxic_blade": {
+        "levelAttributes": [
+            {
+                "Charged Knife Damage": [
+                    2,
+                    "fixed"
+                ],
+                "Knife Damage": [
+                    1,
+                    "fixed"
+                ],
+                "Slow": [
+                    0.3,
+                    "percent"
+                ],
+                "Slow Duration": [
+                    1,
+                    "fixed"
+                ]
+            },
+            {
+                "Charged Knife Damage": [
+                    4,
+                    "fixed"
+                ],
+                "Knife Damage": [
+                    1.5,
+                    "fixed"
+                ],
+                "Slow": [
+                    0.3,
+                    "percent"
+                ],
+                "Slow Duration": [
+                    1.5,
+                    "fixed"
+                ]
+            },
+            {
+                "Charged Knife Damage": [
+                    6,
+                    "fixed"
+                ],
+                "Knife Damage": [
+                    2,
+                    "fixed"
+                ],
+                "Slow": [
+                    0.3,
+                    "percent"
+                ],
+                "Slow Duration": [
+                    2,
+                    "fixed"
+                ]
+            }
+        ],
+        "name": "Toxic Blade"
+    },
+    "utility_belt": {
+        "levelAttributes": [
+            {
+                "Inventory Slots": [
+                    1,
+                    "fixed"
+                ],
+                "Max HP": [
+                    -40,
+                    "fixed"
+                ],
+                "Movement Speed": [
+                    -0.05,
+                    "percent"
+                ]
+            },
+            {
+                "Inventory Slots": [
+                    1,
+                    "fixed"
+                ],
+                "Max HP": [
+                    -35,
+                    "fixed"
+                ],
+                "Movement Speed": [
+                    -0.04,
+                    "percent"
+                ]
+            },
+            {
+                "Inventory Slots": [
+                    1,
+                    "fixed"
+                ],
+                "Max HP": [
+                    -30,
+                    "fixed"
+                ],
+                "Movement Speed": [
+                    -0.03,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Utility Belt"
+    }
+}

@@ -2,7 +2,9 @@
 <html>
     <head>
         <meta name="keywords" content="EnemyOnBoard, Enemy On Board, EOB, Builds">
-        <meta name="description" content="Create and compare Enemy On Board builds!">
+        <meta name="description" content="Create and share Enemy On Board builds!">
+        <meta name="og:title" content="EOB Builder">
+        <meta name="og:description" content="Create and share Enemy On Board builds!">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,7 +14,6 @@
         <script src="https://kit.fontawesome.com/8fbeccc6cb.js" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="{{ url_for('static', filename='css/build.css') }}">
-        <link rel="stylesheet" href="../static/css/build.css">
         <script src="{{ url_for('static', filename='js/build.js') }}"></script>
         <script src="{{ url_for('static', filename='js/loadGET.js') }}"></script>
         
@@ -25,8 +26,10 @@
 
     <body>
         <div class="mainHeader">
-            <img src="../static/assets/EOB_logo.svg">
-            <h1>Enemy On Board</h1>
+            <a href="{{ url_for('info') }}">
+                <img src="../static/assets/EOB_logo.svg">
+                <h1>Enemy On Board</h1>
+            </a>
         </div>
 
         <div id="main">
@@ -62,7 +65,7 @@
                         <select onchange="changeItem(this.value, this.parentElement);" name="startingItem">
                             <option value="health_kit">Health Kit</option>
                             <option value="stun_gun">Stun Gun</option>
-                            <option value="snare_trap">Snare Trap</option>
+                            <option value="snare_traps">Snare Trap</option>
                             <option value="force_baton">Force Baton</option>
                             <option value="EMP">EMP</option>
                             <option value="jump_drive">Jump Drive</option>
@@ -77,29 +80,37 @@
                     </div>
                 </div>
 
-                <div class="perkAttributes">
-                    <div>
-                        <h2>Remote Diagnostics</h2>
-                        <ul>
-                            <li style="color: #00ff00">Show Players Below Health: 20%</li>
-                        </ul>
-                    </div>
+                <div style="display: inline-block;">
+                    <div class="itemAttributes">
 
-                    <div>
-                        <h2>Toxic Blade</h2>
-                        <ul>
-                            <li style="color: #00ff00">Knife Damage: 1.5</li>
-                            <li style="color: #00ff00">Charged Knife Damage: 4</li>
-                            <li style="color: #00ff00">Slow: 30%</li>
-                            <li style="color: #00ff00">Slow Duration: 1.5</li>
-                        </ul>
                     </div>
+                </div>
+                
+                <div style="display: inline-block;">
+                    <div class="perkAttributes">
+                        <div>
+                            <h2>Remote Diagnostics</h2>
+                            <ul>
+                                <li style="color: #00ff00">Show Players Below Health: 20%</li>
+                            </ul>
+                        </div>
 
-                    <div>
-                        <h2>Ballistic Plating</h2>
-                        <ul>
-                            <li style="color: #00ff00">Damage Taken Reduction: 1</li>
-                        </ul>
+                        <div>
+                            <h2>Toxic Blade</h2>
+                            <ul>
+                                <li style="color: #00ff00">Knife Damage: 1.5</li>
+                                <li style="color: #00ff00">Charged Knife Damage: 4</li>
+                                <li style="color: #00ff00">Slow: 30%</li>
+                                <li style="color: #00ff00">Slow Duration: 1.5</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h2>Ballistic Plating</h2>
+                            <ul>
+                                <li style="color: #00ff00">Damage Taken Reduction: 1</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

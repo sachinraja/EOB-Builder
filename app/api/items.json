@@ -1,0 +1,327 @@
+{
+    "EMP": {
+        "attributes": {
+            "Cast Time": [
+                0.75,
+                "fixed"
+            ],
+            "Charged Damage": [
+                35,
+                "fixed"
+            ],
+            "Charged Slow": [
+                100,
+                "fixed"
+            ],
+            "Damage": [
+                20,
+                "fixed"
+            ],
+            "Duration": [
+                1.25,
+                "fixed"
+            ],
+            "Gen Charge": [
+                "Empower",
+                "str"
+            ],
+            "Max Ammo": [
+                1,
+                "fixed"
+            ],
+            "Radius": [
+                3,
+                "fixed"
+            ],
+            "Slow": [
+                60,
+                "fixed"
+            ],
+            "Type": [
+                "Starting",
+                "str"
+            ]
+        },
+        "name": "EMP"
+    },
+    "force_baton": {
+        "attributes": {
+            "Cast Time": [
+                0.7,
+                "fixed"
+            ],
+            "Damage": [
+                10,
+                "fixed"
+            ],
+            "Gen Charge": [
+                2,
+                "fixed"
+            ],
+            "Knockback": [
+                65,
+                "fixed"
+            ],
+            "Max Ammo": [
+                4,
+                "fixed"
+            ],
+            "Stun Duration": [
+                1,
+                "fixed"
+            ],
+            "Type": [
+                "Starting",
+                "str"
+            ]
+        },
+        "name": "Force Baton"
+    },
+    "force_blaster": {
+        "attributes": {
+            "Cast Time": [
+                0.65,
+                "fixed"
+            ],
+            "Charged Damage": [
+                22.5,
+                "fixed"
+            ],
+            "Charged Knockback": [
+                30,
+                "fixed"
+            ],
+            "Charged Range": [
+                4.5,
+                "fixed"
+            ],
+            "Charged Slow Magnitude": [
+                0.75,
+                "percent"
+            ],
+            "Damage": [
+                15,
+                "fixed"
+            ],
+            "Gen Charge": [
+                1,
+                "fixed"
+            ],
+            "Knockback": [
+                15,
+                "fixed"
+            ],
+            "Max Ammo": [
+                2,
+                "fixed"
+            ],
+            "Range": [
+                2.25,
+                "fixed"
+            ],
+            "Slow Duration": [
+                2,
+                "fixed"
+            ],
+            "Slow Magnitude": [
+                0.6,
+                "percent"
+            ],
+            "Type": [
+                "Starting",
+                "str"
+            ]
+        },
+        "name": "Force Blaster"
+    },
+    "health_kit": {
+        "attributes": {
+            "Cast Time": [
+                0.6,
+                "fixed"
+            ],
+            "Gen Charge": [
+                1,
+                "fixed"
+            ],
+            "Healing": [
+                30,
+                "fixed"
+            ],
+            "Max Ammo": [
+                2,
+                "fixed"
+            ],
+            "Type": [
+                "Starting",
+                "str"
+            ]
+        },
+        "name": "Health Kit"
+    },
+    "hookshot": {
+        "attributes": {
+            "Cast Time": [
+                0.7,
+                "fixed"
+            ],
+            "Gen Charge": [
+                1,
+                "fixed"
+            ],
+            "Impact Damage": [
+                12.5,
+                "fixed"
+            ],
+            "Max Ammo": [
+                2,
+                "fixed"
+            ],
+            "Pull Damage per Meter": [
+                2,
+                "fixed"
+            ],
+            "Type": [
+                "Starting",
+                "str"
+            ]
+        },
+        "name": "Hookshot"
+    },
+    "jump_drive": {
+        "attributes": {
+            "Cast Time": [
+                0.4,
+                "fixed"
+            ],
+            "Damage": [
+                8,
+                "fixed"
+            ],
+            "Distance": [
+                40,
+                "fixed"
+            ],
+            "Duration": [
+                0.5,
+                "fixed"
+            ],
+            "Gen Charge": [
+                2,
+                "str"
+            ],
+            "Max Ammo": [
+                4,
+                "fixed"
+            ],
+            "Slow": [
+                75,
+                "fixed"
+            ],
+            "Type": [
+                "Starting",
+                "str"
+            ]
+        },
+        "name": "Jump Drive"
+    },
+    "snare_traps": {
+        "attributes": {
+            "Cast Time": [
+                0.3,
+                "fixed"
+            ],
+            "Charged Damage": [
+                25,
+                "fixed"
+            ],
+            "Damage": [
+                10,
+                "fixed"
+            ],
+            "Gen Charge": [
+                2,
+                "fixed"
+            ],
+            "Max Ammo": [
+                4,
+                "fixed"
+            ],
+            "Stun Duration": [
+                1.25,
+                "fixed"
+            ],
+            "Type": [
+                "Starting",
+                "str"
+            ],
+            "Visibility Radius": [
+                2,
+                "fixed"
+            ]
+        },
+        "name": "Snare Traps"
+    },
+    "stim_serum": {
+        "attributes": {
+            "Cast Time": [
+                0.3,
+                "fixed"
+            ],
+            "Duration": [
+                3,
+                "fixed"
+            ],
+            "Gen Charge": [
+                1,
+                "fixed"
+            ],
+            "Max Ammo": [
+                2,
+                "fixed"
+            ],
+            "Movement Speed Bonus": [
+                65,
+                "fixed"
+            ],
+            "Type": [
+                "Starting",
+                "str"
+            ]
+        },
+        "name": "Stim Serum"
+    },
+    "stun_gun": {
+        "attributes": {
+            "Cast Time": [
+                0.85,
+                "fixed"
+            ],
+            "Damage": [
+                6,
+                "fixed"
+            ],
+            "Gen Charge": [
+                2,
+                "fixed"
+            ],
+            "Max Ammo": [
+                4,
+                "fixed"
+            ],
+            "Projectile Speed": [
+                "Fast",
+                "str"
+            ],
+            "Stun Duration": [
+                1.25,
+                "fixed"
+            ],
+            "Type": [
+                "Starting",
+                "str"
+            ]
+        },
+        "name": "Stun Gun"
+    }
+}

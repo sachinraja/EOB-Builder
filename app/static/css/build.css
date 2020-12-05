@@ -10,9 +10,6 @@ html, body{
     height: 100%;
 }
 
-html{
-}
-
 body{
     background-image: url("../assets/EOB_space.png");
     background-attachment: fixed;
@@ -27,13 +24,17 @@ body{
     font-family: Montserrat, Arial, Helvetica, sans-serif;
 }
 
-.mainHeader > img{
+.mainHeader a{
+    text-decoration: none;
+}
+
+.mainHeader > a > img{
     width: 2em;
     height: 2em;
     display: inline;
 }
 
-.mainHeader > h1{
+.mainHeader > a > h1{
     display: inline;
     color: purple;
     background: linear-gradient(purple, violet);
@@ -137,6 +138,23 @@ select{
 
 .perks > div > select{
     display: block;
+}
+
+.itemAttributes{
+    float: right;
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    background-color: gray;
+    margin: 10px;
+    padding: 5px;
+}
+
+.itemAttributes > h2{
+    font-size: 1.2em;
+}
+
+.itemAttributes > ul{
+    padding-left: 5px;
+    list-style-type: none;
 }
 
 .perkAttributes{

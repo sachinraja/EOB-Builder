@@ -1,16 +1,55 @@
-from flask import Flask, request, url_for, redirect, render_template
+from flask import Flask, request, url_for, redirect, render_template, jsonify, make_response
+import json
+from dotenv import load_dotenv
+import os
+import redis
+import datetime
+from math import ceil
+
+# Connect to Redis
+load_dotenv()
+r = redis.from_url(os.environ.get("REDIS_URL"))
+r.flushdb()
+
+MAX_REQUESTS = 1000
+REQUESTS_AMOUNT_TTL = 600
+
+valid_characters = ["otto", "triss", "virgil", "lucius", "xenna", "monkus", "sarrel", "niko", "silas"]
+valid_items = ["health_kit", "stun_gun", "snare_traps", "force_baton", "EMP", "jump_drive", "hookshot", "stim_serum", "force_blaster"]
+valid_perks_api = ["advanced_optics", "alien_affinity", "alien_hunter", "backstab", "ballistic_plating", "battle_axe", "bedside_manner", "bulletproof_vest", "channeler", "concealed_blade", "critical_failure", "cybernetics", "dead_shot", "espresso", "flanking", "fusion_cell", "heavy_wrench", "jerry_rigged", "knuckle_dusters", "lean_build", "lightweight", "make_it_rain", "mercenary", "nano_serum", "nano_virus", "nanoweave_vest", "ninja", "nope_nope_nope", "overdrive", "pack_tactics", "remote_diagnostics", "revenge", "robust", "scavenger", "scrappy", "second_wind", "shock_therapy", "slow_drip", "symbiont_expert", "thermal_imaging", "toxic_blade", "utility_belt"]
+valid_perks = [f"{perk}_{num}" for num in range(1, 4) for perk in valid_perks_api]
+
+characters = []
+items = []
+perks = []
+
+with open("app/api/characters.json") as f:
+    characters = json.load(f)
+
+with open("app/api/items.json") as f:
+    items = json.load(f)
+
+with open("app/api/perks.json") as f:
+    perks = json.load(f)
 
 app = Flask(__name__)
-valid_characters = ["otto", "triss", "virgil", "lucius", "xenna", "monkus", "sarrel", "niko", "silas"]
-valid_items = ["health_kit", "stun_gun", "snare_trap", "force_baton", "EMP", "jump_drive", "hookshot", "stim_serum", "force_blaster"]
-valid_perks = ["advanced_optics_1", "advanced_optics_2", "advanced_optics_3", "alien_affinity_1", "alien_affinity_2", "alien_affinity_3", "alien_hunter_1", "alien_hunter_2", "alien_hunter_3", "backstab_1", "backstab_2", "backstab_3", "ballistic_plating_1", "ballistic_plating_2", "ballistic_plating_3", "battle_axe_1", "battle_axe_2", "battle_axe_3", "bedside_manner_1", "bedside_manner_2", "bedside_manner_3", "bulletproof_vest_1", "bulletproof_vest_2", "bulletproof_vest_3", "channeler_1", "channeler_2", "channeler_3", "concealed_blade_1", "concealed_blade_2", "concealed_blade_3", "critical_failure_1", "critical_failure_2", "critical_failure_3", "cybernetics_1", "cybernetics_2", "cybernetics_3", "dead_shot_1", "dead_shot_2", "dead_shot_3", "espresso_1", "espresso_2", "espresso_3", "flanking_1", "flanking_2", "flanking_3", "fusion_cell_1", "fusion_cell_2", "fusion_cell_3", "heavy_wrench_1", "heavy_wrench_2", "heavy_wrench_3", "jerry_rigged_1", "jerry_rigged_2", "jerry_rigged_3", "knuckle_dusters_1", "knuckle_dusters_2", "knuckle_dusters_3", "lean_build_1", "lean_build_2", "lean_build_3", "lightweight_1", "lightweight_2", "lightweight_3", "make_it_rain_1", "make_it_rain_2", "make_it_rain_3", "mercenary_1", "mercenary_2", "mercenary_3", "nano_serum_1", "nano_serum_2", "nano_serum_3", "nano_virus_1", "nano_virus_2", "nano_virus_3", "nanoweave_vest_1", "nanoweave_vest_2", "nanoweave_vest_3", "ninja_1", "ninja_2", "ninja_3", "nope_nope_nope_1", "nope_nope_nope_2", "nope_nope_nope_3", "overdrive_1", "overdrive_2", "overdrive_3", "pack_tactics_1", "pack_tactics_2", "pack_tactics_3", "remote_diagnostics_1", "remote_diagnostics_2", "remote_diagnostics_3", "revenge_1", "revenge_2", "revenge_3", "robust_1", "robust_2", "robust_3", "scavenger_1", "scavenger_2", "scavenger_3", "scrappy_1", "scrappy_2", "scrappy_3", "second_wind_1", "second_wind_2", "second_wind_3", "shock_therapy_1", "shock_therapy_2", "shock_therapy_3", "slow_drip_1", "slow_drip_2", "slow_drip_3", "symbiont_expert_1", "symbiont_expert_2", "symbiont_expert_3", "thermal_imaging_1", "thermal_imaging_2", "thermal_imaging_3", "toxic_blade_1", "toxic_blade_2", "toxic_blade_3", "utility_belt_1", "utility_belt_2", "utility_belt_3"]
 
-@app.route("/build", methods=["GET", "POST"])
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html"), 404
+
+app.register_error_handler(404, page_not_found)
+
+@app.route("/", methods=["GET", "POST"])
+def home():
+    return redirect(url_for("info"))
+
+@app.route("/info", methods=["GET", "POST"])
+def info():
+    return render_template("info.html")
+
+@app.route("/build", methods=["GET"])
 def build():
-    if request.method == "POST":
-        print(request.form["character"])
-        return redirect(url_for("base"))
-    
     # validate character arg
     character = request.args.get("chr", "otto")
     if character not in valid_characters: 
@@ -35,6 +74,111 @@ def build():
     
     return render_template("build.html", character=character, item=item, perks=perks)
 
-@app.route("/")
-def home():
-    return redirect("/build")
+@app.route("/api", methods=["GET"])
+def api():
+    resp = None
+    headers = {}
+
+    # if valid param is in request.args
+    if len(set(request.args).intersection(("character", "item", "perk"))) >= 1:
+        remaining_requests = decrement_one_from_request_limit(request.remote_addr)
+        
+        headers["Content-Type"] = "application/json"
+        headers["X-RateLimit-Limit"] = MAX_REQUESTS
+        headers["X-RateLimit-Remaining"] = remaining_requests
+        requests_pttl = get_remaining_requests_reset_pttl(request.remote_addr)
+        reset_time = datetime.datetime.now() + datetime.timedelta(milliseconds=requests_pttl)
+        headers["X-RateLimit-Reset"] = reset_time.timestamp()
+        # convert from millseconds to seconds for header
+        requests_ttl = requests_pttl / 1000
+        headers["X-RateLimit-Reset-After"] = requests_ttl
+
+        # if being ratelimited
+        if remaining_requests <= 0:
+            # ceil seconds to retry request after
+            headers["Retry-After"] = ceil(requests_ttl)
+
+            resp = make_response(jsonify({
+                "message": "You are being rate limited.", 
+                "retry-after" : requests_ttl
+                }))
+                
+            resp.headers = headers
+            return resp, 429
+
+    if "character" in request.args:
+        character = request.args.get("character")
+        if character in valid_characters:
+            resp = make_response(jsonify(characters[character]))
+        
+        else:
+            resp = make_response(jsonify({"message": "Character not found."}))
+            resp.headers = headers
+            return resp, 400
+
+        resp.headers = headers
+        return resp
+    
+    if "item" in request.args:
+        item = request.args.get("item")
+        if item in valid_items:
+            resp = make_response(jsonify(items[item]))
+        
+        else:
+            resp = make_response(jsonify({"message": "Item not found."}))
+            resp.headers = headers
+            return resp, 400
+
+        resp.headers = headers
+        return resp
+
+    elif "perk" in request.args:
+        perk = request.args.get("perk")
+        if perk in valid_perks_api:
+            resp =  make_response(jsonify(perks[perk]))
+        
+        else:
+            resp = make_response(jsonify({"message": "Perk not found."}))
+            resp.headers = headers
+            return resp, 400
+
+        resp.headers = headers
+        return resp
+        
+
+    return render_template("api.html")
+
+def get_remaining_requests(remote_addr):
+    """Gets the remaining number of requests before the ratelimit is applied."""
+    
+    # decrement one from api calls limit
+    remaining_requests = r.get(f"{remote_addr}_remaining")
+    
+    if remaining_requests == None:
+        # 1000 requests per 10 minutes
+        r.set(f"{remote_addr}_remaining", MAX_REQUESTS, ex=REQUESTS_AMOUNT_TTL)
+        return MAX_REQUESTS
+    
+    return int(remaining_requests)
+
+def decrement_one_from_request_limit(remote_addr):
+    """Subtracts one from the request limit mapped to the remote address in redis and returns number of remaining requests."""
+
+    remaining_requests = get_remaining_requests(remote_addr)
+
+    # set key if does not exist
+    if r.set(f"{remote_addr}_remaining", MAX_REQUESTS, ex=REQUESTS_AMOUNT_TTL, nx=True):
+        remaining_requests = REQUESTS_AMOUNT_TTL
+
+    # decrement if above 0
+    if remaining_requests > 0:
+        r.decr(f"{remote_addr}_remaining", amount=1)
+        return remaining_requests - 1
+    
+    else:
+        return remaining_requests
+
+def get_remaining_requests_reset_pttl(remote_addr):
+    """Gets the number of milliseconds before the number of remaining requests is reset."""
+
+    return r.pttl(f"{remote_addr}_remaining")

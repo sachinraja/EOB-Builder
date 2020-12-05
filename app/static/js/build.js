@@ -1,14 +1,19 @@
 class Character{
-    constructor(name, imageName){
+    constructor(name, imageName, title, uniquePerks, abilityName, abilityAttributes){
         this.name = name;
         this.imageName = imageName;
+        this.title = title;
+        this.uniquePerks = uniquePerks;
+        this.abilityName = abilityName;
+        this.abilityAttributes = abilityAttributes;
     }
 }
 
 class Item{
-    constructor(name, imageName){
+    constructor(name, imageName, attributes){
         this.name = name;
         this.imageName = imageName;
+        this.attributes = attributes;
     }
 }
 
@@ -20,28 +25,201 @@ class Perk{
     }
 }
 
+const characterEnums = {
+    COOLDOWN : "Cooldown",
+    TOTALHEALING : "Total healing",
+    DURATION : "Duration",
+    MISC : "Miscellaneous",
+    DAMAGEREDUCTION : "Damage Reduction",
+    KNOCKBACKREDUCTION : "Knockback Reduction",
+    DAMAGE : "Damage",
+    CASTTIME : "Cast Time",
+    CASTS : "Casts",
+    DOORLOCKDURATION : "Door Lock Duration",
+    STUNDURATION : "Stun Duration",
+    VISIBLERADIUS : "Visible Radius"
+}
+
 const characters = {
-    "otto" : new Character("Otto", "otto_icon.png"), 
-    "triss" : new Character("Triss", "triss_icon.png"),
-    "virgil" : new Character("Virgil", "virgil_icon.png"),
-    "lucius" : new Character("Lucius", "lucius_icon.png"),
-    "xenna" : new Character("Xenna", "xenna_icon.png"),
-    "monkus" : new Character("Monkus", "monkus_icon.png"),
-    "sarrel" : new Character("Sarrel", "sarrel_icon.png"),
-    "niko" : new Character("Niko", "niko_icon.png"),
-    "silas" : new Character("Silas", "silas_icon.png")
+    "otto" : new Character("Otto", "otto_icon.png", "Medic", ["bedside_manner", "remote_diagnostics"], "Bio-Stabilizer", [
+        {[characterEnums.COOLDOWN] : [70, "fixed"], [characterEnums.DURATION] : [5, "fixed"], [characterEnums.TOTALHEALING] : [15, "fixed"]},
+        {[characterEnums.COOLDOWN] : [60, "fixed"], [characterEnums.DURATION] : [5, "fixed"], [characterEnums.TOTALHEALING] : [20, "fixed"]},
+        {[characterEnums.COOLDOWN] : [50, "fixed"], [characterEnums.DURATION] : [5, "fixed"], [characterEnums.TOTALHEALING] : [25, "fixed"]}
+    ]),
+
+    "triss" : new Character("Triss", "triss_icon.png", "Spy", ["ninja", "advanced_optics"], "Target Location", [
+        {[characterEnums.COOLDOWN] : [70, "fixed"], [characterEnums.DURATION] : [4, "fixed"], [characterEnums.MISC] : ["Reveals Players", "str"]},
+        {[characterEnums.COOLDOWN] : [60, "fixed"], [characterEnums.DURATION] : [5, "fixed"], [characterEnums.MISC] : ["Reveals Players", "str"]},
+        {[characterEnums.COOLDOWN] : [45, "fixed"], [characterEnums.DURATION] : [6, "fixed"], [characterEnums.MISC] : ["Reveals Players", "str"]}
+    ]),
+
+    "virgil" : new Character("Virgil", "virgil_icon.png", "Scientist", ["critical_failure", "fusion_cell"], "Teleportation Field", [
+        {[characterEnums.COOLDOWN] : [40, "fixed"], [characterEnums.DURATION] : [5, "fixed"], [characterEnums.MISC] : ["Teleports Players", "str"]},
+        {[characterEnums.COOLDOWN] : [30, "fixed"], [characterEnums.DURATION] : [5, "fixed"], [characterEnums.MISC] : ["Teleports Players", "str"]},
+        {[characterEnums.COOLDOWN] : [20, "fixed"], [characterEnums.DURATION] : [5, "fixed"], [characterEnums.MISC] : ["Teleports Players", "str"]}
+    ]),
+
+    "lucius" : new Character("Lucius", "lucius_icon.png", "Trapper", ["knuckle_dusters", "second_wind"], "Adrenaline Rush", [
+        {[characterEnums.COOLDOWN] : [40, "fixed"], [characterEnums.DURATION] : [5, "fixed"], [characterEnums.DAMAGEREDUCTION] : [0.4, "percent"], [characterEnums.KNOCKBACKREDUCTION] : [0.4, "percent"]},
+        {[characterEnums.COOLDOWN] : [30, "fixed"], [characterEnums.DURATION] : [5, "fixed"], [characterEnums.DAMAGEREDUCTION] : [0.5, "percent"], [characterEnums.KNOCKBACKREDUCTION] : [0.5, "percent"]},
+        {[characterEnums.COOLDOWN] : [20, "fixed"], [characterEnums.DURATION] : [5, "fixed"], [characterEnums.DAMAGEREDUCTION] : [0.6, "percent"], [characterEnums.KNOCKBACKREDUCTION] : [0.6, "percent"]}
+    ]),
+
+    "xenna" : new Character("Xenna", "xenna_icon.png", "Captain", ["deadshot", "mercenary"], "Torrelian Shield", [
+        {[characterEnums.COOLDOWN] : [20, "fixed"], [characterEnums.DURATION] : [10, "fixed"], [characterEnums.DAMAGE] : [4, "fixed"], [characterEnums.CASTTIME] : [0.75, "fixed"]},
+        {[characterEnums.COOLDOWN] : [20, "fixed"], [characterEnums.DURATION] : [15, "fixed"], [characterEnums.DAMAGE] : [6, "fixed"], [characterEnums.CASTTIME] : [0.6, "fixed"]},
+        {[characterEnums.COOLDOWN] : [20, "fixed"], [characterEnums.DURATION] : [20, "fixed"], [characterEnums.DAMAGE] : [8, "fixed"], [characterEnums.CASTTIME] : [0.45, "fixed"]}
+    ]),
+
+    "monkus" : new Character("Monkus", "monkus_icon.png", "Space Monkey", ["lean_build", "scrappy"], "Monkey Roll", [
+        {[characterEnums.COOLDOWN] : [30, "fixed"], [characterEnums.MISC] : ["Invincible during roll", "str"]},
+        {[characterEnums.COOLDOWN] : [25, "fixed"], [characterEnums.MISC] : ["Invincible during roll", "str"]},
+        {[characterEnums.COOLDOWN] : [15, "fixed"], [characterEnums.MISC] : ["Invincible during roll", "str"]}
+    ]),
+
+    "sarrel" : new Character("Sarrel", "sarrel_icon.png", "Grifter", ["channeler", "alien_affinity"], "Ability Steal", [
+        {[characterEnums.COOLDOWN] : [25, "fixed"], [characterEnums.MISC] : ["Steals an ability", "str"]},
+        {[characterEnums.COOLDOWN] : [20, "fixed"], [characterEnums.MISC] : ["Steals an ability", "str"]},
+        {[characterEnums.COOLDOWN] : [15, "fixed"], [characterEnums.MISC] : ["Steals an ability", "str"]}
+    ]),
+
+    "niko" : new Character("Niko", "niko_icon.png", "Officer", ["utility_belt", "bulletproof_vest"], "Access Denied", [
+        {[characterEnums.COOLDOWN] : [45, "fixed"], [characterEnums.DOORLOCKDURATION] : [3, "fixed"], [characterEnums.DAMAGE] : [8, "fixed"], [characterEnums.STUNDURATION] : [1, "fixed"]},
+        {[characterEnums.COOLDOWN] : [40, "fixed"], [characterEnums.DOORLOCKDURATION] : [3, "fixed"], [characterEnums.DAMAGE] : [12, "fixed"], [characterEnums.STUNDURATION] : [1, "fixed"]},
+        {[characterEnums.COOLDOWN] : [35, "fixed"], [characterEnums.DOORLOCKDURATION] : [3, "fixed"], [characterEnums.DAMAGE] : [16, "fixed"], [characterEnums.STUNDURATION] : [1, "fixed"]}
+    ]),
+
+    "silas" : new Character("Silas", "silas_icon.png", "Assassin", ["concealed_blade", "backstab"], "Shadow Sneak", [
+        {[characterEnums.COOLDOWN] : [20, "fixed"], [characterEnums.DURATION] : [8, "fixed"], [characterEnums.VISIBLERADIUS] : [6, "fixed"]},
+        {[characterEnums.COOLDOWN] : [20, "fixed"], [characterEnums.DURATION] : [9, "fixed"], [characterEnums.VISIBLERADIUS] : [5.5, "fixed"]},
+        {[characterEnums.COOLDOWN] : [20, "fixed"], [characterEnums.DURATION] : [10, "fixed"], [characterEnums.VISIBLERADIUS] : [5, "fixed"]}
+    ])
+};
+
+const itemEnums = {
+    TYPE : "Type",
+    CASTTIME : "Cast Time",
+    GENCHARGE : "Gen Charge",
+    MAXAMMO : "Max Ammo",
+    HEALING : "Healing",
+    PROJECTILESPEED : "Projectile Speed",
+    STUNDURATION : "Stun Duration",
+    DAMAGE : "Damage",
+    CHARGEDDAMAGE : "Charged Damage",
+    VISIBILITYRADIUS : "Visibility Radius",
+    KNOCKBACK : "Knockback",
+    DURATION : "Duration",
+    RADIUS : "Radius",
+    SLOW : "Slow",
+    CHARGEDSLOW : "Charged Slow",
+    DISTANCE: "Distance",
+    IMPACTDAMAGE : "Impact Damage",
+    PULLDAMAGEPERMETER : "Pull Damage per Meter",
+    MOVEMENTSPEEDBONUS : "Movement Speed Bonus",
+    CHARGEDKNOCKBACK : "Charged Knockback",
+    RANGE : "Range",
+    CHARGEDRANGE : "Charged Range",
+    SLOWDURATION : "Slow Duration",
+    SLOWMAGNITUDE : "Slow Magnitude",
+    CHARGEDSLOWMAGNITUDE : "Charged Slow Magnitude"
 };
 
 const items = {
-    "health_kit" : new Item("Health Kit", "health_kit.png"),
-    "stun_gun" : new Item("Stun Gun", "stun_gun.png"),
-    "snare_trap" : new Item("Snare Trap", "snare_trap.png"),
-    "force_baton" : new Item("Force Baton", "force_baton.png"),
-    "EMP" : new Item("EMP", "EMP.png"),
-    "jump_drive" : new Item("Jump Drive", "jump_drive.png"),
-    "hookshot" : new Item("Hookshot", "hookshot.png"),
-    "stim_serum" : new Item("Stim Serum", "stim_serum.png"),
-    "force_blaster" : new Item("Force Blaster", "force_blaster.png")
+    "health_kit" : new Item("Health Kit", "health_kit.png", {
+        [itemEnums.TYPE] : ["Starting", "str"],
+        [itemEnums.CASTTIME] : [0.6, "fixed"],
+        [itemEnums.GENCHARGE] : [1, "fixed"],
+        [itemEnums.MAXAMMO] : [2, "fixed"],
+        [itemEnums.HEALING] : [30, "fixed"]
+    }),
+
+    "stun_gun" : new Item("Stun Gun", "stun_gun.png", {
+        [itemEnums.TYPE] : ["Starting", "str"],
+        [itemEnums.CASTTIME] : [0.85, "fixed"],
+        [itemEnums.GENCHARGE] : [2, "fixed"],
+        [itemEnums.MAXAMMO] : [4, "fixed"],
+        [itemEnums.PROJECTILESPEED] : ["Fast", "str"],
+        [itemEnums.STUNDURATION] : [1.25, "fixed"],
+        [itemEnums.DAMAGE] : [6, "fixed"]
+    }),
+
+    "snare_traps" : new Item("Snare Traps", "snare_traps.png", {
+        [itemEnums.TYPE] : ["Starting", "str"],
+        [itemEnums.CASTTIME] : [0.3, "fixed"],
+        [itemEnums.GENCHARGE] : [2, "fixed"],
+        [itemEnums.MAXAMMO] : [4, "fixed"],
+        [itemEnums.STUNDURATION] : [1.25, "fixed"],
+        [itemEnums.DAMAGE] : [10, "fixed"],
+        [itemEnums.CHARGEDDAMAGE] : [25, "fixed"],
+        [itemEnums.VISIBILITYRADIUS] : [2, "fixed"]
+    }),
+
+    "force_baton" : new Item("Force Baton", "force_baton.png", {
+        [itemEnums.TYPE] : ["Starting", "str"],
+        [itemEnums.CASTTIME] : [0.7, "fixed"],
+        [itemEnums.GENCHARGE] : [2, "fixed"],
+        [itemEnums.MAXAMMO] : [4, "fixed"],
+        [itemEnums.STUNDURATION] : [1, "fixed"],
+        [itemEnums.DAMAGE] : [10, "fixed"],
+        [itemEnums.KNOCKBACK] : [65, "fixed"]
+    }),
+
+    "EMP" : new Item("EMP", "EMP.png", {
+        [itemEnums.TYPE] : ["Starting", "str"],
+        [itemEnums.CASTTIME] : [0.75, "fixed"],
+        [itemEnums.GENCHARGE] : ["Empower", "str"],
+        [itemEnums.MAXAMMO] : [1, "fixed"],
+        [itemEnums.DURATION] : [1.25, "fixed"],
+        [itemEnums.DAMAGE] : [20, "fixed"],
+        [itemEnums.CHARGEDDAMAGE] : [35, "fixed"],
+        [itemEnums.RADIUS] : [3, "fixed"],
+        [itemEnums.SLOW] : [60, "fixed"],
+        [itemEnums.CHARGEDSLOW] : [100, "fixed"]
+    }),
+
+    "jump_drive" : new Item("Jump Drive", "jump_drive.png", {
+        [itemEnums.TYPE] : ["Starting", "str"],
+        [itemEnums.CASTTIME] : [0.4, "fixed"],
+        [itemEnums.GENCHARGE] : [2, "str"],
+        [itemEnums.MAXAMMO] : [4, "fixed"],
+        [itemEnums.DURATION] : [0.5, "fixed"],
+        [itemEnums.DAMAGE] : [8, "fixed"],
+        [itemEnums.DISTANCE] : [40, "fixed"],
+        [itemEnums.SLOW] : [75, "fixed"]
+    }),
+
+    "hookshot" : new Item("Hookshot", "hookshot.png", {
+        [itemEnums.TYPE] : ["Starting", "str"],
+        [itemEnums.CASTTIME] : [0.7, "fixed"],
+        [itemEnums.GENCHARGE] : [1, "str"],
+        [itemEnums.MAXAMMO] : [2, "fixed"],
+        [itemEnums.IMPACTDAMAGE] : [12.5, "fixed"],
+        [itemEnums.PULLDAMAGEPERMETER] : [2, "fixed"]
+    }),
+    "stim_serum" : new Item("Stim Serum", "stim_serum.png", {
+        [itemEnums.TYPE] : ["Starting", "str"],
+        [itemEnums.CASTTIME] : [0.3, "str"],
+        [itemEnums.GENCHARGE] : [1, "str"],
+        [itemEnums.MAXAMMO] : [2, "fixed"],
+        [itemEnums.DURATION] : [3, "fixed"],
+        [itemEnums.MOVEMENTSPEEDBONUS] : [65, "fixed"]
+    }),
+
+    "force_blaster" : new Item("Force Blaster", "force_blaster.png", {
+        [itemEnums.TYPE] : ["Starting", "str"],
+        [itemEnums.CASTTIME] : [0.65, "fixed"],
+        [itemEnums.GENCHARGE] : [1, "str"],
+        [itemEnums.MAXAMMO] : [2, "fixed"],
+        [itemEnums.DAMAGE] : [15, "fixed"],
+        [itemEnums.CHARGEDDAMAGE] : [22.5, "fixed"],
+        [itemEnums.KNOCKBACK] : [15, "fixed"],
+        [itemEnums.CHARGEDKNOCKBACK] : [30, "fixed"],
+        [itemEnums.RANGE] : [2.25, "fixed"],
+        [itemEnums.CHARGEDRANGE] : [4.5, "fixed"],
+        [itemEnums.SLOWDURATION] : [2, "fixed"],
+        [itemEnums.SLOWMAGNITUDE] : [0.6, "percent"],
+        [itemEnums.CHARGEDSLOWMAGNITUDE] : [0.75, "percent"]
+    })
 };
 
 const perkEnums = {
@@ -366,7 +544,51 @@ function changeItem(itemName, itemDiv){
     const itemImg = itemDiv.getElementsByTagName("img")[0];
     itemImg.src = `../static/assets/items/${item.imageName}`;
 
+    displayItemInfo(item);
     updateURLParameter(window.location.href, "item", itemName)
+}
+
+function displayItemInfo(item){
+    let itemHTML = `<h2>${item.name}</h2>\n<ul>\n`;;
+
+    for (const itemAttr of Object.entries(item.attributes)){
+        let [attrNum, attrType] = itemAttr[1];
+        let attrStr = "";
+        let color = "#00ff00";
+
+        switch (attrType){
+            case "fixed":
+                if (attrNum < 0){
+                    color = "#ff0000";
+                }
+
+                attrStr = attrNum;
+                break;
+            
+            case "percent":
+                if (attrNum < 0){
+                    color = "#ff0000";
+                }
+
+                attrNum *= 100;
+                attrStr = `${attrNum}%`;
+                break;
+            
+            case "str":
+                attrStr = attrNum;
+                break;
+
+            case "list":
+                attrStr = attrNum.join(", ");
+                break;
+        }
+
+        itemHTML += `<li style="color: ${color}">${itemAttr[0]}: ${attrStr}</li>\n`;
+    }
+
+    itemHTML += "</ul>\n";
+    console.log(itemHTML)
+    document.getElementsByClassName("itemAttributes")[0].innerHTML = itemHTML;
 }
 
 function getPerk(name){
@@ -413,49 +635,48 @@ function changePerk(perkInfo, perkDiv){
 function displayPerkInfo(perkInfos){
     const perkData = perkInfos.map(perkInfo => getPerk(perkInfo[0]));
 
-    let perkHTMLs = [];
+    let perkHTMLs = "";
 
     //convert to strings
     for (let i = 0; i < perkData.length; i++){
         const level = perkInfos[i][1] - 1;
         let perkHTML = `<div>\n<h2>${perkData[i].name}</h2>\n<ul>\n`;
 
-        for (levelAttr of Object.entries(perkData[i].levelAttributes[level])){
-            if (levelAttr[0]){
-                let [attrNum, attrType] = levelAttr[1];
-                let attrStr = "";
-                let color = "#00ff00";
+        for (const levelAttr of Object.entries(perkData[i].levelAttributes[level])){
+            let [attrNum, attrType] = levelAttr[1];
+            let attrStr = "";
+            let color = "#00ff00";
 
-                switch (attrType){
-                    case "fixed":
-                        if (attrNum < 0){
-                            color = "#ff0000";
-                        }
+            switch (attrType){
+                case "fixed":
+                    if (attrNum < 0){
+                        color = "#ff0000";
+                    }
 
-                        attrStr = attrNum;
-                        break;
-                    
-                    case "percent":
-                        if (attrNum < 0){
-                            color = "#ff0000";
-                        }
+                    attrStr = attrNum;
+                    break;
+                
+                case "percent":
+                    if (attrNum < 0){
+                        color = "#ff0000";
+                    }
 
-                        attrNum *= 100;
-                        attrStr = `${attrNum}%`;
-                        break;
-                    
-                    case "str":
-                        attrStr = attrNum;
-                        break;
+                    attrNum *= 100;
+                    attrStr = `${attrNum}%`;
+                    break;
+                
+                case "str":
+                    attrStr = attrNum;
+                    break;
 
-                    case "list":
-                        attrStr = attrNum.join(", ")
-                        break;
-                }
-
-                perkHTML += `<li style="color: ${color}">${levelAttr[0]}: ${attrStr}</li>\n`;
+                case "list":
+                    attrStr = attrNum.join(", ");
+                    break;
             }
+
+            perkHTML += `<li style="color: ${color}">${levelAttr[0]}: ${attrStr}</li>\n`;
         }
+        
         perkHTML += "</ul>\n</div>\n"
 
         perkHTMLs += perkHTML;
