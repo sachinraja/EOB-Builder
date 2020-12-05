@@ -68,6 +68,40 @@
         ],
         "name": "Alien Hunter"
     },
+    "armory_specialist": {
+        "levelAttributes": [
+            {
+                "Extra Item": [
+                    [
+                        "Shield Battery",
+                        "Bandage"
+                    ],
+                    "list"
+                ]
+            },
+            {
+                "Extra Item": [
+                    [
+                        "Knife",
+                        "Throwing Axe",
+                        "Wrench"
+                    ],
+                    "list"
+                ]
+            },
+            {
+                "Extra Item": [
+                    [
+                        "Sledgehammer",
+                        "Mortar",
+                        "Sniper"
+                    ],
+                    "list"
+                ]
+            }
+        ],
+        "name": "Armory Specialist"
+    },
     "backstab": {
         "levelAttributes": [
             {
@@ -357,6 +391,76 @@
             }
         ],
         "name": "Dead Shot"
+    },
+    "enhanced_alloys": {
+        "levelAttributes": [
+            {
+                "Armor Absorption": [
+                    0.1,
+                    "percent"
+                ],
+                "Bulletproof Vest Generator Recharge": [
+                    0.25,
+                    "percent"
+                ]
+            },
+            {
+                "Armor Absorption": [
+                    0.175,
+                    "percent"
+                ],
+                "Bulletproof Vest Generator Recharge": [
+                    0.375,
+                    "percent"
+                ]
+            },
+            {
+                "Armor Absorption": [
+                    0.25,
+                    "percent"
+                ],
+                "Bulletproof Vest Generator Recharge": [
+                    0.5,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Enhanced Alloys"
+    },
+    "epinephrine": {
+        "levelAttributes": [
+            {
+                "Duration": [
+                    3,
+                    "fixed"
+                ],
+                "Movement Speed After Ability": [
+                    0.1,
+                    "percent"
+                ]
+            },
+            {
+                "Duration": [
+                    3,
+                    "fixed"
+                ],
+                "Movement Speed After Ability": [
+                    0.15,
+                    "percent"
+                ]
+            },
+            {
+                "Duration": [
+                    3,
+                    "fixed"
+                ],
+                "Movement Speed After Ability": [
+                    0.2,
+                    "percent"
+                ]
+            }
+        ],
+        "name": "Epinephrine"
     },
     "espresso": {
         "levelAttributes": [
@@ -901,19 +1005,19 @@
         "levelAttributes": [
             {
                 "Max HP": [
-                    10,
+                    0.1,
                     "percent"
                 ]
             },
             {
                 "Max HP": [
-                    15,
+                    0.15,
                     "percent"
                 ]
             },
             {
                 "Max HP": [
-                    20,
+                    0.2,
                     "percent"
                 ]
             }

@@ -14,11 +14,6 @@ r.flushdb()
 MAX_REQUESTS = 1000
 REQUESTS_AMOUNT_TTL = 600
 
-valid_characters = ["otto", "triss", "virgil", "lucius", "xenna", "monkus", "sarrel", "niko", "silas"]
-valid_items = ["health_kit", "stun_gun", "snare_traps", "force_baton", "EMP", "jump_drive", "hookshot", "stim_serum", "force_blaster"]
-valid_perks_api = ["advanced_optics", "alien_affinity", "alien_hunter", "backstab", "ballistic_plating", "battle_axe", "bedside_manner", "bulletproof_vest", "channeler", "concealed_blade", "critical_failure", "cybernetics", "dead_shot", "espresso", "flanking", "fusion_cell", "heavy_wrench", "jerry_rigged", "knuckle_dusters", "lean_build", "lightweight", "make_it_rain", "mercenary", "nano_serum", "nano_virus", "nanoweave_vest", "ninja", "nope_nope_nope", "overdrive", "pack_tactics", "remote_diagnostics", "revenge", "robust", "scavenger", "scrappy", "second_wind", "shock_therapy", "slow_drip", "symbiont_expert", "thermal_imaging", "toxic_blade", "utility_belt"]
-valid_perks = [f"{perk}_{num}" for num in range(1, 4) for perk in valid_perks_api]
-
 characters = []
 items = []
 perks = []
@@ -31,6 +26,10 @@ with open("app/api/items.json") as f:
 
 with open("app/api/perks.json") as f:
     perks = json.load(f)
+
+valid_characters = ["otto", "triss", "virgil", "lucius", "xenna", "monkus", "sarrel", "niko", "silas"]
+valid_items = ["health_kit", "stun_gun", "snare_traps", "force_baton", "EMP", "jump_drive", "hookshot", "stim_serum", "force_blaster"]
+valid_perks = perks.keys()
 
 app = Flask(__name__)
 
@@ -60,19 +59,25 @@ def build():
     if item not in valid_items:
         item = "health_kit"
     
+    input_perks = request.args.getlist("perk")
+
     # validate perks
-    perks = request.args.getlist("perk")
+    # get list up to len of 3 so there is a valid perk for each perk
+    validated_perks = [["advanced_optics", 1]] * (3 - len(input_perks))
 
     # replace invalid perks
-    perks = ["advanced_optics_1" if perk not in valid_perks else perk for perk in perks]
+    for perk in input_perks:
+        perk_name = perk[:-2]
+        level = perk[-2:]
 
-    # get list up to len of 3 so there is a valid perk for each perk
-    perks.extend(["advanced_optics_1"] * (3 - len(perks)))
-
-    # split perk name and level
-    perks = [[perk[:-2], int(perk[-1:])] for perk in perks]
+        if perk_name in valid_perks and level[0] == "_" and level[1] in ["1", "2", "3"]:
+            # split perk name and level
+            validated_perks.append([perk_name, int(level[1])])
+        
+        else:
+            validated_perks.append(["advanced_optics", 1])
     
-    return render_template("build.html", character=character, item=item, perks=perks)
+    return render_template("build.html", character=character, item=item, perks=validated_perks)
 
 @app.route("/api", methods=["GET"])
 def api():
