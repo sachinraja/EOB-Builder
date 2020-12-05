@@ -140,8 +140,11 @@ select{
     display: block;
 }
 
-.itemAttributes{
+.attributes{
     float: right;
+}
+.itemAttributes{
+    display: block;
     font-family: Montserrat, Arial, Helvetica, sans-serif;
     background-color: gray;
     margin: 10px;
