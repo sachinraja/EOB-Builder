@@ -50,16 +50,16 @@ body{
     margin: 25px;
     margin-bottom: 0;
     padding: 10px;
-    text-align: center;
 }
 
 #copyURL > p{
+    display: inline-block;
     border: 2px solid gray;
     background-color: white;
     padding: 3px;
-    display: inline-block;
     font-family: Montserrat, Arial, Helvetica, sans-serif;
     font-size: 0.8em;
+    word-break: break-all;
 }
 
 #copyURL > div{
@@ -84,7 +84,8 @@ body{
     margin: 25px;
     margin-top: 0;
     padding: 10px;
-    overflow: hidden;
+    overflow: auto;
+    padding-bottom: 50px;
 }
 
 .build{
@@ -181,7 +182,7 @@ select{
     list-style-type: none;
 }
 
-@media only screen and (max-width: 825px){
+@media only screen and (max-width: 765px){
     .attributes, .perkAttributes{
         float: left;
     }
