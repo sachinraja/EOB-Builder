@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/build.css') }}?v=1.0">
         <script src="{{ url_for('static', filename='js/gameData.js') }}?v=1.0"></script>
         <script src="{{ url_for('static', filename='js/build.js') }}?v=1.0.1"></script>
-        <script src="{{ url_for('static', filename='js/loadGET.js') }}?v=1.0.1"></script>
+        <script src="{{ url_for('static', filename='js/loadGET.js') }}?v=1.0.2"></script>
         
         <script type="text/javascript">
             window.addEventListener("load", function(){
@@ -46,37 +46,13 @@
                 <div class="build">
                     <div class="character">
                         <img src="../static/assets/characters/otto_icon.png">
-
-                        <select onchange="changeCharacter(this.value, this.parentElement);" name="character">
-                            <option value="otto">Otto</option>
-                            <option value="triss">Triss</option>
-                            <option value="virgil">Virgil</option>
-                            <option value="lucius">Lucius</option>
-                            <option value="xenna">Xenna</option>
-                            <option value="monkus">Monkus</option>
-                            <option value="sarrel">Sarrel</option>
-                            <option value="niko">Niko</option>
-                            <option value="silas">Silas</option>
-                        </select>
                     </div>
 
                     <div class="startingItem">
                         <img src="../static/assets/items/health_kit.png">
-
-                        <select onchange="changeItem(this.value, this.parentElement);" name="startingItem">
-                            <option value="health_kit">Health Kit</option>
-                            <option value="stun_gun">Stun Gun</option>
-                            <option value="snare_traps">Snare Trap</option>
-                            <option value="force_baton">Force Baton</option>
-                            <option value="EMP">EMP</option>
-                            <option value="jump_drive">Jump Drive</option>
-                            <option value="hookshot">Hookshot</option>
-                            <option value="stim_serum">Stim Serum</option>
-                            <option value="force_blaster">Force Blaster</option>
-                        </select>
                     </div>
                     
-                    <div class="perks"> </div>
+                    <div class="perks"></div>
                 </div>
                 
                 <div class="attributes">

@@ -1,13 +1,33 @@
 function loadCharacter(characterName){
     let characterDiv = document.getElementsByClassName("character")[0];
     changeCharacter(characterName, characterDiv);
-    characterDiv.getElementsByTagName("select")[0].value = characterName;
+
+    let characterSelect = document.createElement("select");
+    characterSelect.name = "character";
+    characterSelect.onchange = function(){changeCharacter(this.value, this.parentElement);}
+
+    for (character of Object.entries(characters)){
+        characterSelect.innerHTML += `<option value=${character[0]}>${character[1].name}</option>`;
+    }
+
+    characterSelect.value = characterName;
+    characterDiv.appendChild(characterSelect);
 }
 
 function loadItem(itemName){
     let itemDiv = document.getElementsByClassName("startingItem")[0];
     changeItem(itemName, itemDiv);
-    itemDiv.getElementsByTagName("select")[0].value = itemName;
+
+    let itemSelect = document.createElement("select");
+    itemSelect.name = "startingItem";
+    itemSelect.onchange = function(){changeItem(this.value, this.parentElement)};
+
+    for (item of Object.entries(items)){
+        itemSelect.innerHTML += `<option value=${item[0]}>${item[1].name}</option>`;
+    }
+
+    itemSelect.value = itemName;
+    itemDiv.appendChild(itemSelect);
 }
 
 function loadPerk(perkInfo){
@@ -44,7 +64,7 @@ function loadPerk(perkInfo){
     newPerkDivHTML += "\n</select>";
     newPerkDiv.innerHTML = newPerkDivHTML;
 
-    //add newPerkDiv to perks Container and set selection value
+    //add newPerkDiv to perks container and set selection value
     document.getElementsByClassName("perks")[0].appendChild(newPerkDiv);
     newPerkDiv.getElementsByTagName("select")[0].value = JSON.stringify(perkInfo);
 }

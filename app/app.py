@@ -27,8 +27,8 @@ with open("app/api/items.json") as f:
 with open("app/api/perks.json") as f:
     perks = json.load(f)
 
-valid_characters = ["otto", "triss", "virgil", "lucius", "xenna", "monkus", "sarrel", "niko", "silas"]
-valid_items = ["health_kit", "stun_gun", "snare_traps", "force_baton", "EMP", "jump_drive", "hookshot", "stim_serum", "force_blaster"]
+valid_characters = characters.keys()
+valid_items = items.keys()
 valid_perks = perks.keys()
 
 app = Flask(__name__)
