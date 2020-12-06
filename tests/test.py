@@ -2,6 +2,7 @@ import aiohttp
 import asyncio
 import random
 
+API_LINK = "https://eob-builder.herokuapp.com/api"
 invalid = ["a?!#@$(%", "baer#41!43", "caer!@#e", "eraea", "r/a/hdf", "teah;fls"]
 
 valid_characters = ["otto", "triss", "virgil", "lucius", "xenna", "monkus", "sarrel", "niko", "silas"]
@@ -16,32 +17,32 @@ mix_valid_invalid_perks = valid_perks[:3] + invalid
 # grab with aiohttp
 async def get_random_character():
     async with aiohttp.ClientSession() as session:
-        async with session.get("http://127.0.0.1:5000/api", params={"character" : random.choice(valid_characters)}) as resp:
+        async with session.get(API_LINK, params={"character" : random.choice(valid_characters)}) as resp:
             return await resp.json()
 
 async def get_character(character):
     async with aiohttp.ClientSession() as session:
-        async with session.get("http://127.0.0.1:5000/api", params={"character" : character}) as resp:
+        async with session.get(API_LINK, params={"character" : character}) as resp:
             return await resp.json()
 
 async def get_random_item():
     async with aiohttp.ClientSession() as session:
-        async with session.get("http://127.0.0.1:5000/api", params={"item" : random.choice(valid_items)}) as resp:
+        async with session.get(API_LINK, params={"item" : random.choice(valid_items)}) as resp:
             return await resp.json()
 
 async def get_item(item):
     async with aiohttp.ClientSession() as session:
-        async with session.get("http://127.0.0.1:5000/api", params={"item" : item}) as resp:
+        async with session.get(API_LINK, params={"item" : item}) as resp:
             return await resp.json()
 
 async def get_random_perk():
     async with aiohttp.ClientSession() as session:
-        async with session.get("http://127.0.0.1:5000/api", params={"perk" : random.choice(valid_perks)}) as resp:
+        async with session.get(API_LINK, params={"perk" : random.choice(valid_perks)}) as resp:
             return await resp.json()
 
 async def get_perk(perk):
     async with aiohttp.ClientSession() as session:
-        async with session.get("http://127.0.0.1:5000/api", params={"perk" : perk}) as resp:
+        async with session.get(API_LINK, params={"perk" : perk}) as resp:
             return await resp.json()
 
 async def keep_requesting(function):

@@ -139,7 +139,7 @@ def api():
 
     elif "perk" in request.args:
         perk = request.args.get("perk")
-        if perk in valid_perks_api:
+        if perk in valid_perks:
             resp =  make_response(jsonify(perks[perk]))
         
         else:
